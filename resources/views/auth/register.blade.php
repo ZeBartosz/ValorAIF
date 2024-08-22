@@ -9,36 +9,51 @@
             <div class="m-5">
                 <label for="username">Username</label>
                 <input type="text" name="username" class="shadow md:shadow-lg ">
+                @error('username')
+                    <p>{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Email --}}
             <div class="m-5">
-                <label for="Email">Email</label>
-                <input type="text" name="Email" class="shadow md:shadow-lg ">
+                <label for="email">Email</label>
+                <input type="text" name="email" class="shadow md:shadow-lg ">
+                @error('email')
+                    <p>{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Password --}}
             <div class="m-5">
                 <label for="password">Password</label>
                 <input type="password" name="password" class="shadow md:shadow-lg ">
+                @error('password')
+                    <p>{{ $message }}</p>
+                @enderror
             </div>
             
             {{-- Password Confirmation --}}
             <div class="m-5">
                 <label for="password_confirmation">Password Confirmation</label>
-                <input type="password" name="password_confirmation" class="shadow md:shadow-lg ">
+                <input type="password" name="password_confirmation" class="shadow md:shadow-lg @error('password') @enderror">
             </div>
 
-            {{-- Avator --}}
+            {{-- avatar --}}
             <div class="m-5">
-                <label for="avator">Avator</label>
-                <input type="file" name="avator">
+                <label for="avatar">Avatar</label>
+                <input type="file" name="avatar">
+                @error('avatar')
+                    <p>{{ $message }}</p>
+                @enderror
             </div>
             
-            {{-- Avator --}}
+            {{-- Banner --}}
             <div class="m-5">
                 <label for="banner">Banner</label>
                 <input type="file" name="banner">
+                @error('banner')
+                    <p>{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Submit --}}
