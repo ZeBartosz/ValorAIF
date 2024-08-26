@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -50,7 +51,7 @@ class AuthController extends Controller
         Auth::login($user);
 
         // Redirect
-        return redirect()->route('home');
+        return redirect()->route('posts.index');
     }
 
     // Login user
@@ -68,5 +69,21 @@ class AuthController extends Controller
                 'failed' => 'The provided information do not match our records'
             ]);
         }
+    }
+
+    public function logout(Request $request) {
+        
+        // Logout the user
+        Auth::logout();
+
+        // Invalidate the session
+        $request->session()->invalidate();
+
+        // Regenerate the token 
+        $request->session()->regenerateToken();
+
+        // Redirect to home 
+        return redirect('/');
+
     }
 }

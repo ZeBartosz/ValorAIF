@@ -9,12 +9,23 @@
 </head>
 <body>
     <nav>
-        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('posts.index') }}">Home</a>
+        @auth
+        <div>
+            <a href="{{ route('profile') }}">Profile</a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button>Logout</button>
+            </form>
+        </div>
+        @endauth
 
+        @guest
         <div>
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>
         </div>
+        @endguest
     </nav>
 
     <main>
