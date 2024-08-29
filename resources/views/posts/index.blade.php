@@ -1,10 +1,13 @@
 <x-layout>
 
-    @auth
-        <h1>Logged in</h1>
-    @endauth
+    <h1>Home page</h1>
 
-    @guest
-        <h1>This is index page</h1>
-    @endguest
+    @foreach ($posts as $post)
+        <div>
+            <h2>{{ $post->title }}</h2>
+            <p>{{ $post->body }}</p>
+            <p> {{ $post->created_at }} </p>
+            <img src="{{ $post->postsBanner }}" alt="">
+        </div>
+    @endforeach
 </x-layout>
