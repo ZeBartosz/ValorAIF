@@ -13,8 +13,8 @@ Route::resource('posts', PostsController::class);
 // Register
 Route::middleware('auth')->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
 });
 
 Route::middleware('guest')->group(function() {
