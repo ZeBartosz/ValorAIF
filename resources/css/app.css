@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 main {
-    @apply max-w-screen-lg mx-auto;
+    @apply max-w-screen-lg mx-auto flex flex-wrap;
 }
 
 nav {
@@ -14,8 +14,3 @@ nav {
 .logo {
     @apply object-fill h-20 w-32;
 }
-/* .logo {
-    width: 125px;
-    height: 75px;
-
-} */
