@@ -10,7 +10,15 @@ nav {
     @apply px-5 flex items-center justify-between;
     
 }
+nav.link {
+    
+}
 
 .logo {
-    @apply object-fill h-20 w-32;
+    @apply object-fill h-14 w-32;
 }
+
+.btn {
+    @apply flex w-full justify-center h-8 overflow-auto rounded-full bg-slate-100 focus:outline-none focus:ring-1 focus:ring-slate-100 focus:ring-offset-2 focus:ring-offset-slate-800;
+}
+
