@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+main {
+    @apply max-w-screen-lg mx-auto;
+}
+
+nav {
+    @apply px-5 flex items-center justify-between;
+    
+}
+
+.logo {
+    @apply object-fill h-20 w-32;
+}
+/* .logo {
+    width: 125px;
+    height: 75px;
+
+} */

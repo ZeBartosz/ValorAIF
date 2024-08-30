@@ -8,8 +8,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <nav>
-        <a href="{{ route('posts.index') }}">Home</a>
+    <nav class="bg-red-400">
+        <a href="{{ route('posts.index') }}"><img class="logo" src="storage\account_images\Logo\ValorAIF.png" alt=""></a>
         @auth
         <div>
             <a href="{{ route('profile') }}">Profile</a>
