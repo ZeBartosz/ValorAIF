@@ -46,9 +46,9 @@ class PostsController extends Controller
         // Store avatar if exists
         $pathBanner = null;
         if ($request->hasFile('banner')) {
-            $pathBanner = Storage::disk('public')->put('account_images/banner', $request->banner);
+            $pathBanner = Storage::disk('public')->put('storage/account_images/banner', $request->banner);
         } else {
-            $pathBanner = 'account_images/banner/default_banner.jpg';
+            $pathBanner = 'storage/account_images/banner/default_banner.jpg';
         }
         
         // Create a post
