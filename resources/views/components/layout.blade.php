@@ -11,8 +11,8 @@
     <nav class="bg-red-400">
         <a href="{{ route('posts.index') }}"><img class="logo" src="storage\account_images\Logo\ValorAIF.png" alt=""></a>
         @auth
-        <div>
-            <a href="{{ route('profile') }}">Profile</a>
+        <div >
+            <a class="p href="{{ route('profile') }}">Profile</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button>Logout</button>
@@ -22,7 +22,7 @@
 
         @guest
         <div>
-            <a href="{{ route('login') }}">Login</a>
+            <a class="pr-2" href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>
         </div>
         @endguest

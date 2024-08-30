@@ -4,8 +4,8 @@
 
             <div class="pb-5 ">
                 <p>Hello {{ auth()->user()->username }}</p>
-                <img src="{{ auth()->user()->avatar }}" alt="">
-                <img class="object-cover h-48 w-96" src="{{ auth()->user()->banner }}" alt="">
+                {{-- <img src="{{ auth()->user()->avatar }}" alt="">
+                <img class="object-cover h-48 w-96" src="{{ auth()->user()->banner }}" alt=""> --}}
             </div>
             
             <h1 class="flex justify-center">Create your post!</h1>
