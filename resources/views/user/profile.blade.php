@@ -1,6 +1,7 @@
 <x-layout>
 
     <p>Hello {{ auth()->user()->username }}</p>
+    <img src="{{ auth()->user()->avatar }}" alt="">
     
       <h1>Create your post!</h1>
     
