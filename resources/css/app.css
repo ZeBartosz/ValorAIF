@@ -10,9 +10,7 @@ nav {
     @apply px-5 flex items-center justify-between;
     
 }
-nav.link {
-    
-}
+
 
 .logo {
     @apply object-fill h-14 w-32;

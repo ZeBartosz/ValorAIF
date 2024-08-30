@@ -12,7 +12,7 @@
         <a href="{{ route('posts.index') }}"><img class="logo" src="storage\account_images\Logo\ValorAIF.png" alt=""></a>
         @auth
         <div >
-            <a class="p href="{{ route('profile') }}">Profile</a>
+            <a class="" href="{{ route('profile') }}">Profile</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button>Logout</button>
