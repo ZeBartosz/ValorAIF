@@ -31,7 +31,6 @@
 
     <main style="background-image: url('storage/account_images/Logo/valorantBackground.png'); background-size: cover; background-position: center;">
         {{ $slot }}
-        {{-- <img src="storage\account_images\Logo\valorantBackground.png" alt=""> --}}
     </main>
 
 </body>
