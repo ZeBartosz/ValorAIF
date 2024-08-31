@@ -1,7 +1,5 @@
 <x-layout>
 
-    <main>
-
         <div>
             <h1 class="flex justify-center">Register a new account</h1>
             <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
@@ -61,5 +59,4 @@
                 <button class="btn">register</button>
             </form>
         </div>
-    </main>
-    </x-layout>
+</x-layout>

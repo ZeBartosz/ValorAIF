@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 main {
-    @apply max-w-screen-lg mx-auto flex flex-wrap;
+    @apply flex items-center justify-center;
 }
 
 nav {

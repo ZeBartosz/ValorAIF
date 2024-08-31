@@ -1,7 +1,4 @@
 <x-layout>
-
-    <main>
-        
         <div>
             <h1 class="flex justify-center">Login</h1>
             <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
@@ -38,6 +35,4 @@
                 <button class="btn">Login</button>
             </form>
         </div>
-    
-    </main>
 </x-layout>

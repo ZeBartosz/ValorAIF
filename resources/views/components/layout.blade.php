@@ -8,11 +8,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <nav class="bg-red-400">
+
+    <nav class="bg-[#bd3944]">
         <a href="{{ route('posts.index') }}"><img class="logo" src="storage\account_images\Logo\ValorAIF.png" alt=""></a>
         @auth
-        <div >
-            <a class="" href="{{ route('profile') }}">Profile</a>
+        <div class="flex">
+            <a class="pr-2" href="{{ route('profile') }}">Profile</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button>Logout</button>
@@ -28,8 +29,10 @@
         @endguest
     </nav>
 
-    <main>
+    <main style="background-image: url('storage/account_images/Logo/valorantBackground.png'); background-size: cover; background-position: center;">
         {{ $slot }}
+        {{-- <img src="storage\account_images\Logo\valorantBackground.png" alt=""> --}}
     </main>
+
 </body>
 </html>

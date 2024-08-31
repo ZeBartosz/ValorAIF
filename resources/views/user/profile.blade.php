@@ -1,5 +1,4 @@
 <x-layout>
-    <main class="">
         <div class="flex-wrap">
 
             <div class="pb-5 ">
@@ -43,9 +42,4 @@
                     <button class="btn">Create</button>
                 </form>
             </div>
-                
-                
-                
-            
-    </main>
 </x-layout>
