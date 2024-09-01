@@ -10,12 +10,11 @@
                 
                 {{-- Date and Auther of post--}}
                 <div class=" text-white ml-[70px]">
-                    <p class="h-[20px]" style="text-shadow: 1px 1px black, -1px -1px black;"> Created by: <em><a href="#">{{ $post->user->username }}></a></em></p>
+                    <p class="h-[20px]" style="text-shadow: 1px 1px black, -1px -1px black;"> Created by: <em><a href="#">{{ $post->user->username }}</a></em></p>
                     <p class="text-xs font-light" style="text-shadow: 1px 1px black, -1px -1px black;"> {{ $post->created_at->diffForHumans()}} </p>
                 </div>
                 
 
-                <a href=""></a>
                 {{-- Title --}}
                 <div class="mx-3 mt-2">
                     <h2 class=" text-white drop-shadow-sm "  style="text-shadow: 1px 1px black, -1px -1px black;">{{ $post->title }}</h2>
