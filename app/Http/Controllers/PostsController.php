@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorepostsRequest;
 use App\Http\Requests\UpdatepostsRequest;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use \Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Post;
 
-class PostsController extends Controller
+class PostsController extends Controller 
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -95,8 +99,22 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(posts $posts)
+    public function destroy(Posts $post)
     {
-        //
+
+        // Authorising the action
+        // Gate::authorize('modify', $posts);
+        // Delete post image if exists
+        $default = "account_images/banner/default_banner.jpg";
+        $userBanner = $post->postsBanner;
+        if (!Str::contains($userBanner, $default)) {
+            Storage::disk('public')->delete($post->postsBanner);
+        }
+ 
+         // Delete post
+        $post->delete();
+        
+         // Redirect to daashboard
+         return back()->with('delete', 'Your post has been deleted!');
     }
 }
