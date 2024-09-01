@@ -2,7 +2,7 @@
         <div class="flex-wrap">
 
             <div class="pb-5 ">
-                <p>Hello {{ auth()->user()->username }}</p>
+                <h1>Welcome {{ auth()->user()->username }} you have {{ $posts->total() }} posts!</h1>
                 {{-- <img src="{{ auth()->user()->avatar }}" alt="">
                 <img class="object-cover h-48 w-96" src="{{ auth()->user()->banner }}" alt=""> --}}
             </div>
@@ -42,4 +42,8 @@
                     <button class="btn">Create</button>
                 </form>
             </div>
+
+            <x-postCards :posts="$posts">
+
+            </x-postCards>
 </x-layout>
