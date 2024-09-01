@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 // Routes to home page 
 Route::redirect('/', 'posts');
 Route::resource('posts', PostsController::class);
+Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
 
 // Register
 Route::middleware('auth')->group(function() {

@@ -1,5 +1,6 @@
-@foreach ($posts as $post)
-        <div class="static flex flex-wrap box-content p- my-[25px] border-2 rounded-lg drop-shadow-sm" style="background-image: url('storage/{{ $post->postsBanner }}'); ; background-size: cover; background-position: center;">
+@props(['post'])
+
+        <div class="static flex flex-wrap box-content p- my-[25px] border-2 rounded-lg drop-shadow-sm" style="background-image: url('storage/{{ $post->postsBanner }}'); background-size: cover; background-position: center; ">
             <div class="max-w-[600px] min-w-[600px] max-">
 
 
@@ -26,10 +27,10 @@
                     <span class="break-all " style="text-shadow: 1px 1px black, -1px -1px black;">{{ Str::limit($post->body, 200) }}</span>
                     <a href="{{ route('posts.show', $post)}}" class="text-blue-500 ml-1 text-sm">Read more &rarr;</a>
                 </div>
+
+
+                <div class="text-white mb-2 mr-2 flex justify-end">
+                    {{ $slot }}
+                </div>
             </div>
         </div>
-@endforeach
-
-<div>
-    {{ $posts->links() }}
-</div>

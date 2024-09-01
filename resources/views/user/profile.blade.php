@@ -42,8 +42,24 @@
                     <button class="btn">Create</button>
                 </form>
             </div>
-
-            <x-postCards :posts="$posts">
-
+            @foreach ($posts as $post)               
+            <x-postCards :post="$post">
+                <div class="mr-2 border-2 rounded-md bg-green-600">
+                    <button class="mx-3" style="text-shadow: 1px 1px black, -1px -1px black;"><a href="#">edit</a></button>
+                </div>
+                
+                <div class="border-2 rounded-md bg-red-700">
+                    <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                        
+                        @csrf
+                        @method('DELETE')
+                        <button class="mx-3" style="text-shadow: 1px 1px black, -1px -1px black;">Delete</button>
+                    </form>
+                </div>
             </x-postCards>
+            @endforeach
+
+            <div>
+                {{ $posts->links() }}
+            </div>
 </x-layout>
