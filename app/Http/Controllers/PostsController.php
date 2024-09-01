@@ -36,21 +36,26 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
         // validation
         $request->validate([
             'title' => ['required', 'max:55'],
             'body' => ['required', 'max:500',],
             'banner' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
+
+        // dd($request);
         
         // Store avatar if exists
         $pathBanner = null;
         if ($request->hasFile('banner')) {
-            $pathBanner = Storage::disk('public')->put('storage/account_images/banner', $request->banner);
+            $pathBanner = Storage::disk('public')->put('posts_banner', $request->banner);
         } else {
-            $pathBanner = 'storage/account_images/banner/default_banner.jpg';
+            $pathBanner = 'account_images/banner/default_banner.jpg';
         }
         
+
+
         // Create a post
         Auth::user()->posts()->create([
             'title' => $request->title,
