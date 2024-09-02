@@ -11,6 +11,7 @@ Route::redirect('/', 'posts');
 Route::resource('posts', PostsController::class);
 Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
 
+
 // Register
 Route::middleware('auth')->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

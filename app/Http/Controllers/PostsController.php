@@ -14,7 +14,7 @@ use \Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Post;
 
-class PostsController extends Controller 
+class PostsController extends Controller
 {
 
     /**
@@ -30,10 +30,7 @@ class PostsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -49,7 +46,7 @@ class PostsController extends Controller
         ]);
 
         // dd($request);
-        
+
         // Store avatar if exists
         $pathBanner = null;
         if ($request->hasFile('banner')) {
@@ -57,7 +54,7 @@ class PostsController extends Controller
         } else {
             $pathBanner = 'account_images/banner/default_banner.jpg';
         }
-        
+
 
 
         // Create a post
@@ -75,9 +72,9 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(posts $posts)
+    public function show(Posts $post)
     {
-        //
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
@@ -110,11 +107,11 @@ class PostsController extends Controller
         if (!Str::contains($userBanner, $default)) {
             Storage::disk('public')->delete($post->postsBanner);
         }
- 
-         // Delete post
+
+        // Delete post
         $post->delete();
-        
-         // Redirect to daashboard
-         return back()->with('delete', 'Your post has been deleted!');
+
+        // Redirect to daashboard
+        return back()->with('delete', 'Your post has been deleted!');
     }
 }

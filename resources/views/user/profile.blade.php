@@ -47,7 +47,7 @@
         </div>
             
             <div class="flex justify-center ">
-                <h2 class="text-white mt-2" style="text-shadow: 1px 1px black, -1px -1px black;">Your Posts:</h2>
+                <h2 class="text-white mt-4 text-xl" style="text-shadow: 1px 1px black, -1px -1px black;">Your Posts:</h2>
             </div>
             @foreach ($posts as $post)
             <x-postCards :post="$post">

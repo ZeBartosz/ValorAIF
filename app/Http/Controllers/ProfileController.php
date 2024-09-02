@@ -20,6 +20,6 @@ class ProfileController extends Controller
         
         $userPosts = $user->posts()->latest()->paginate(6);
 
-        return view('users.posts', ['posts' => $userPosts, 'user' => $user]);
+        return view('user.postsUser', ['posts' => $userPosts, 'user' => $user]);
     }
 }

@@ -7,10 +7,10 @@
     <title>{{ env('APP_NAME') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body style="background-image: url('storage/account_images/Logo/valorantBackground.png'); background-size: cover; background-position: center; ">
+<body style="background-image: url('/storage/account_images/Logo/valorantBackground.png'); background-size: cover; background-position: center; ">
 
     <nav class="bg-[#bd3944] border-b-2 border-white">
-        <a href="{{ route('posts.index') }}"><img class="logo" src="storage\account_images\Logo\ValorAIF.png" alt=""></a>
+        <a href="{{ route('posts.index') }}"><img class="logo" src="\storage\account_images\Logo\ValorAIF.png" alt=""></a>
         @auth
         <div class="flex">
             <a class="pr-2" href="{{ route('profile') }}">Profile</a>
