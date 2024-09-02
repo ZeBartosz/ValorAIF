@@ -80,17 +80,50 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(posts $posts)
+    public function edit(posts $post)
     {
-        //
+        return view('posts.edit', ['post' =>$post]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, posts $posts)
+    public function update(Request $request, posts $post)
     {
-        //
+        // validation
+        $request->validate([
+            'title' => ['required', 'max:55'],
+            'body' => ['required', 'max:500',],
+            'banner' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp']
+        ]);
+
+
+
+        // Store avatar if exists
+        $default = "account_images/banner/default_banner.jpg" ;
+        $pathBanner = $request->postsBanner && null;
+        if ($request->hasFile('postsBanner')) {
+            if (!Str::contains($pathBanner, $default)) {
+                if(!Str::contains($post->postsBanner, $default)){
+                    Storage::disk('public')->delete($post->postsBanner);
+                }
+                $pathBanner = Storage::disk('public')->put('posts_banner', $request->postsBanner);
+            } 
+        } else {
+            $pathBanner = 'account_images/banner/default_banner.jpg';
+        }
+
+
+        // Create a post
+        $post->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'postsBanner' => $pathBanner
+        ]);
+
+
+        // Redirect
+        return redirect ()->route('profile')->with('success', 'Your post was updated!');
     }
 
     /**

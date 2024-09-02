@@ -53,7 +53,7 @@
             <x-postCards :post="$post">
                 <div class="mr-2 border-2 rounded-md bg-green-600">
                     <button class="mx-3" style="text-shadow: 1px 1px black, -1px -1px black;"><a
-                            href="#">edit</a></button>
+                            href="{{ Route('posts.edit', $post)}}">edit</a></button>
                 </div>
 
                 <div class="border-2 rounded-md bg-red-700">
