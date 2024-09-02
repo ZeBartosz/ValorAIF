@@ -82,7 +82,7 @@ class PostsController extends Controller
      */
     public function edit(posts $post)
     {
-        return view('posts.edit', ['post' =>$post]);
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -100,15 +100,15 @@ class PostsController extends Controller
 
 
         // Store avatar if exists
-        $default = "account_images/banner/default_banner.jpg" ;
+        $default = "account_images/banner/default_banner.jpg";
         $pathBanner = $request->postsBanner && null;
         if ($request->hasFile('postsBanner')) {
             if (!Str::contains($pathBanner, $default)) {
-                if(!Str::contains($post->postsBanner, $default)){
+                if (!Str::contains($post->postsBanner, $default)) {
                     Storage::disk('public')->delete($post->postsBanner);
                 }
                 $pathBanner = Storage::disk('public')->put('posts_banner', $request->postsBanner);
-            } 
+            }
         } else {
             $pathBanner = 'account_images/banner/default_banner.jpg';
         }
@@ -123,7 +123,7 @@ class PostsController extends Controller
 
 
         // Redirect
-        return redirect ()->route('profile')->with('success', 'Your post was updated!');
+        return redirect()->route('profile')->with('success', 'Your post was updated!');
     }
 
     /**

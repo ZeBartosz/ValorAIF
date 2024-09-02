@@ -11,13 +11,14 @@ use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
-    public function register(Request $request){
-        
+    public function register(Request $request)
+    {
+
         // validation
         $request->validate([
             'username' => ['required', 'max:32'],
-            'email' => ['required', 'max:255', 'email', 'unique:users'],
             'password' => ['required', 'min:3', 'confirmed'],
+            'email' => ['required', 'max:255', 'email', 'unique:users'],
             'avatar' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp'],
             'banner' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
@@ -29,7 +30,7 @@ class AuthController extends Controller
         } else {
             $pathAvatar = 'account_images\avatar\default_avatar.png';
         }
-        
+
         // Store avatar if exists
         $pathBanner = null;
         if ($request->hasFile('banner')) {
@@ -55,14 +56,15 @@ class AuthController extends Controller
     }
 
     // Login user
-    public function login(Request $request) {
-            
+    public function login(Request $request)
+    {
+
         $fields = $request->validate([
             'email' => ['required', 'max:255', 'email'],
             'password' => ['required'],
         ]);
 
-        if(Auth::attempt($fields, $request->remember)) {
+        if (Auth::attempt($fields, $request->remember)) {
             return redirect()->intended();
         } else {
             return back()->withErrors([
@@ -71,8 +73,9 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request) {
-        
+    public function logout(Request $request)
+    {
+
         // Logout the user
         Auth::logout();
 
@@ -84,6 +87,5 @@ class AuthController extends Controller
 
         // Redirect to home 
         return redirect('/');
-
     }
 }

@@ -9,15 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function index () {
+    public function index()
+    {
 
         $posts = Auth::user()->posts()->latest()->paginate(6);
 
         return view('user.profile', ['posts' => $posts]);
     }
 
-    public function userPosts(User $user) {
-        
+    public function userPosts(User $user)
+    {
+
         $userPosts = $user->posts()->latest()->paginate(6);
 
         return view('user.postsUser', ['posts' => $userPosts, 'user' => $user]);
