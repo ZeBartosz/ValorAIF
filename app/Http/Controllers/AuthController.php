@@ -27,7 +27,7 @@ class AuthController extends Controller
         if ($request->hasFile('avatar')) {
             $pathAvatar = Storage::disk('public')->put('account_images/avatar', $request->avator);
         } else {
-            $pathAvatar = 'avatar\default_avatar.png';
+            $pathAvatar = 'account_images\avatar\default_avatar.png';
         }
         
         // Store avatar if exists
@@ -35,7 +35,7 @@ class AuthController extends Controller
         if ($request->hasFile('banner')) {
             $pathBanner = Storage::disk('public')->put('account_images/banner', $request->banner);
         } else {
-            $pathBanner = 'banner/default_banner.jpg';
+            $pathBanner = 'account_images/banner/default_banner.jpg';
         }
 
         // Register
