@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', 'posts');
 Route::resource('posts', PostsController::class);
 Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
-
+Route::get('/{user}/posts', [ProfileController::class, 'userPosts'])->name('posts.user');
 
 // Register
 Route::middleware('auth')->group(function() {

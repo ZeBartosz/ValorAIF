@@ -6,14 +6,14 @@
 
         {{-- Avatar --}}
         <div class="absolute top-[-12px] left-[10px]">
-            <a href="#"><img class="rounded-full max-h-[50px] border-2 mb-5 "
+            <a href="{{ route('posts.user', $post->user) }}"><img class="rounded-full max-h-[50px] border-2 mb-5 "
                     src="/storage\account_images\{{ $post->user->avatar }}" alt=""></a>
         </div>
 
         {{-- Date and Auther of post --}}
         <div class=" text-white ml-[70px]">
             <p class="h-[20px]" style="text-shadow: 1px 1px black, -1px -1px black;"> Created by: <em><a
-                        href="#">{{ $post->user->username }}</a></em></p>
+                        href="{{ route('posts.user', $post->user)}}">{{ $post->user->username }}</a></em></p>
             <p class="text-xs font-light" style="text-shadow: 1px 1px black, -1px -1px black;">
                 {{ $post->created_at->diffForHumans() }} </p>
         </div>
