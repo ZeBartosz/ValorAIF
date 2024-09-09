@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comments;
+use App\Models\User;
+use App\Models\posts;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCommentsRequest;
-use App\Http\Requests\UpdateCommentsRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
@@ -28,9 +30,20 @@ class CommentsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentsRequest $request)
+    public function store(Request $request)
     {
-        //
+        // validation
+        $comment = $request->validate([
+            'body' => ['required', 'max:500',],
+        ]);
+
+        // Create a post
+        $post = Posts::find($request->posts);
+        $post->comments()->create($comment);
+
+
+        // Redirect
+        return back()->with('success', 'your post was created');
     }
 
     /**
@@ -52,7 +65,7 @@ class CommentsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCommentsRequest $request, Comments $comments)
+    public function update(Request $request, Comments $comments)
     {
         //
     }

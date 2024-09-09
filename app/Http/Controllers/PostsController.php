@@ -5,14 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\posts;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorepostsRequest;
-use App\Http\Requests\UpdatepostsRequest;
-use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use \Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use Post;
 
 class PostsController extends Controller
 {

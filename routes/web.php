@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Models\posts;
@@ -9,8 +10,11 @@ use Illuminate\Support\Facades\Route;
 // Routes to home page 
 Route::redirect('/', 'posts');
 Route::resource('posts', PostsController::class);
+Route::resource('comments', CommentsController::class);
 Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
+Route::Post('/posts/{posts}', [CommentsController::class, 'store'])->name('commentStore');
 Route::get('/{user}/posts', [ProfileController::class, 'userPosts'])->name('posts.user');
+
 
 // Register
 Route::middleware('auth')->group(function() {
