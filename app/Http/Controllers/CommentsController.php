@@ -38,7 +38,9 @@ class CommentsController extends Controller
         ]);
 
         // Create a post
+        $comment_user_id = Auth::User()->id;
         $post = Posts::find($request->posts);
+        $comment['comment_user_id'] = $comment_user_id;
         $post->comments()->create($comment);
 
 

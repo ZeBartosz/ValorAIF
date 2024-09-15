@@ -1,7 +1,7 @@
 <x-layout>
     <div>
         
-        <x-postCards :post="$post" full />
+        <x-postCards :post="$post" full/>
         <div class="static flex flex-wrap box-content my-[25px] border-2 rounded-lg drop-shadow-sm bg-gray-800 bg-opacity-75">
             <div class="m-3">
                 <form action="{{ route('commentStore', $post) }}" method="Post">
@@ -20,5 +20,9 @@
                 </form>
             </div>
         </div>
+
+        
+        <x-commentCards :post="$post" />
+
     </div>
 </x-layout>
