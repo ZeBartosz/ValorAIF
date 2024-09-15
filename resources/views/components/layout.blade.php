@@ -9,8 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body
-    style="background-image: url('/storage/account_images/Logo/valorantBackground.png'); background-size: cover; background-position: center; ">
+<body style="background-image: url('/storage/account_images/Logo/valorantBackground.png'); background-size: cover; height: 100vh;">
 
     <nav class="bg-[#bd3944] border-b-2 border-white">
         <a href="{{ route('posts.index') }}"><img class="logo" src="\storage\account_images\Logo\ValorAIF.png"

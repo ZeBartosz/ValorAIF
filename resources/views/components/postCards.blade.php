@@ -12,7 +12,7 @@
 
         {{-- Date and Auther of post --}}
         <div class=" text-white ml-[70px]">
-            <p class="h-[20px]" style="text-shadow: 1px 1px black, -1px -1px black;"> Created by: <em><a
+            <p class="h-[20px]" style="text-shadow: 1px 1px black, -1px -1px black;"><em><a
                         href="{{ route('posts.user', $post->user)}}">{{ $post->user->username }}</a></em></p>
             <p class="text-xs font-light" style="text-shadow: 1px 1px black, -1px -1px black;">
                 {{ $post->created_at->diffForHumans() }} </p>
