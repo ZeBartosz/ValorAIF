@@ -34,16 +34,20 @@
                 </button>
             </div>
         </form>
-
-
+        
         @auth
-            <div class="flex">
+            <div class="flex">       
+                                  
+                @admin
+                    <a class="mr-2 text-white" href="{{ route('adminDashboard') }}" >Admin</a>
+                @endadmin
                 <a class="mr-2 text-white" href="{{ route('profile') }}">Profile</a>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <a class="text-white" href=""><button class="nav-link">Logout</button></a>
                 </form>
             </div>
+
         @endauth
 
         @guest
