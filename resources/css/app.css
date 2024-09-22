@@ -61,4 +61,46 @@ a {
     transform: translateY(-1px);
   }
 
+/* Style the tab */
+.tab {
+    display: flex;
+    cursor: pointer;
+    padding: 10px;
 
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    border: none;
+    padding: 14px 16px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of active tab button */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Hide all tables by default */
+.table-content {
+    display: none;
+
+}
+
+/* Show the active table */
+.table-content.active {
+    display: block;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+
+    text-align: left;
+}
