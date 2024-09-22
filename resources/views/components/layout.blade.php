@@ -20,10 +20,10 @@
 
         <form action=" {{ route('posts.index') }}" method="GET">
             @csrf
-            <div class="pt-2 relative mx-auto text-gray-600">
-                <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+            <div class="relative mx-auto ">
+                <input class="border-2 border-gray-300 bg-gray-800 h-10 px-5 pr-16 rounded-lg focus:outline-none"
                     type="search" name="search" placeholder="Search">
-                <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+                <button type="submit" class="absolute right-2 top-0 mt-3 mr-5">
                     <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                         viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
@@ -38,17 +38,17 @@
 
         @auth
             <div class="flex">
-                <a class="pr-2" href="{{ route('profile') }}">Profile</a>
+                <a class="pr-2 text-white" href="{{ route('profile') }}">Profile</a>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button>Logout</button>
+                    <button class="text-white">Logout</button>
                 </form>
             </div>
         @endauth
 
         @guest
             <div>
-                <a class="pr-2" href="{{ route('login') }}">Login</a>
+                <a class="pr-2 text-white" href="{{ route('login') }}">Login</a>
                 <a href="{{ route('register') }}">Register</a>
             </div>
         @endguest
