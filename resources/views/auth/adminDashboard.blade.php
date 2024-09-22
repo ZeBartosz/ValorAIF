@@ -26,7 +26,11 @@
                         <td>{{ $user->email }}</td>
                         <td class="pl-3 p-1 m-11">{{ $user->isAdmin }}</td>
                         <td class="flex justify-center bg-green-600 max-w-[60px]"><a href="{{ route('posts.user', $user->id)}}">View</a></td>
-                        <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><a href="">Delete</a></td>
+                        <form action="{{ route('profileDestroy', ['user' => $user->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><button>Delete</button></td>
+                        </form>
                     </tr>
                 @endforeach
 

@@ -7,12 +7,17 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Models\posts;
 use Illuminate\Support\Facades\Route;
+use Pest\Plugins\Profile;
 
 // Routes to home page 
 Route::redirect('/', 'posts');
 Route::resource('posts', PostsController::class);
 Route::resource('comments', CommentsController::class);
+Route::resource('profile', ProfileController::class);
 Route::get('/{user}/posts', [ProfileController::class, 'userPosts'])->name('posts.user');
+Route::delete('admin/users/delete/{user}', [ProfileController::class, 'destroy'])->name('profileDestroy');
+
+
 
 
 Route::middleware('admin')->group(function() {
