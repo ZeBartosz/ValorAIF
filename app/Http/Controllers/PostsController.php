@@ -18,7 +18,14 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Posts::latest()->paginate(6);
+
+        // $posts = Posts::latest()->paginate(6);
+        $posts = Posts::orderBy('created_at', 'DESC')->paginate(6);
+
+        if ( request()->has('search') ) {
+            // dd(Posts::where('title', 'like', '%' . request()->get('search', '') . '%')->get());
+            $posts = Posts::where('title', 'like', '%' . request()->get('search', '') . '%')->latest()->paginate(15);
+        }
 
         return view('posts.index', ['posts' => $posts]);
     }
