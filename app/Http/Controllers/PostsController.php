@@ -18,16 +18,25 @@ class PostsController extends Controller
      */
     public function index()
     {
+        // Start with the base query
+        $query = Posts::orderBy('created_at', 'DESC'); 
 
-        // $posts = Posts::latest()->paginate(6);
-        $posts = Posts::orderBy('created_at', 'DESC')->paginate(6);
+        if (request()->has('search')) {
+            $search = request()->get('search', '');
+            // Apply search filter
+            $query->where('title', 'like', '%' . $search . '%');
+        }
 
-        if ( request()->has('search') ) {
-            // dd(Posts::where('title', 'like', '%' . request()->get('search', '') . '%')->get());
-            $posts = Posts::where('title', 'like', '%' . request()->get('search', '') . '%')->latest()->paginate(15);
+        // Paginate the results after the condition (search or not)
+        $posts = $query->paginate(6);
+
+        // Persist the search query in the pagination links
+        if (request()->has('search')) {
+            $posts->appends(['search' => $search]);
         }
 
         return view('posts.index', ['posts' => $posts]);
+
     }
 
     /**
@@ -47,8 +56,6 @@ class PostsController extends Controller
             'body' => ['required', 'max:500',],
             'banner' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
-
-        // dd($request);
 
         // Store avatar if exists
         $pathBanner = null;
