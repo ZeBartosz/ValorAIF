@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PostsController;
@@ -11,13 +12,19 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', 'posts');
 Route::resource('posts', PostsController::class);
 Route::resource('comments', CommentsController::class);
-Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
-Route::Post('/posts/{posts}', [CommentsController::class, 'store'])->name('commentStore');
 Route::get('/{user}/posts', [ProfileController::class, 'userPosts'])->name('posts.user');
 
 
+Route::middleware('admin')->group(function() {
+
+    Route::get('/adminDashboard', [AdminController::class, 'index'])->name('adminDashboard');
+
+});
+
 // Register
 Route::middleware('auth')->group(function() {
+    Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
+    Route::Post('/posts/{posts}', [CommentsController::class, 'store'])->name('commentStore');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
