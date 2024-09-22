@@ -76,7 +76,7 @@ class PostsController extends Controller
 
 
         // Redirect
-        return back()->with('success', 'your post was created');
+        return back()->with('success', 'The post has been created');
     }
 
     /**

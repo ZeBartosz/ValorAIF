@@ -6,8 +6,11 @@
                 <h1 class=" text-white" style="text-shadow: 1px 1px black, -1px -1px black;">Welcome
                     {{ auth()->user()->username }} you have {{ $posts->total() }} posts!</h1>
             </div>
-
-
+            @if (session('success'))
+                <x-flashMsg msg="{{ session('success')}}"/>
+            @elseif (session('delete'))
+                    <x-flashMsg msg="{{ session('delete')}}" bg="bg-red-500"/>              
+            @endif
             {{-- ~Create post --}}
             <h1 class="pt-3 flex justify-center text-white">Create your post!</h1>
             <div class="flex items-center justify-center">
