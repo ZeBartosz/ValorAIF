@@ -45,5 +45,20 @@ label {
     @apply flex w-full justify-center items-center h-8 overflow-auto rounded-full bg-slate-100 focus:outline-none focus:ring-1 focus:ring-slate-100 focus:ring-offset-2 focus:ring-offset-slate-800;
 }
 
+a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 5px;
+    transition: background-size cubic-bezier(0,.5,0,1) 0.3s;
+  }
+  
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    background-size: 100% 3px;
+    transform: translateY(-1px);
+  }
 
 

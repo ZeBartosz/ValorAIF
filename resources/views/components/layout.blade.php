@@ -24,7 +24,7 @@
                 <input class="border-2 border-gray-300 bg-gray-800 h-10 px-5 pr-16 rounded-lg focus:outline-none"
                     type="search" name="search" placeholder="Search">
                 <button type="submit" class="absolute right-2 top-0 mt-3 mr-5">
-                    <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                    <svg class=" h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                         viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
                         xml:space="preserve" width="512px" height="512px">
@@ -38,18 +38,18 @@
 
         @auth
             <div class="flex">
-                <a class="pr-2 text-white" href="{{ route('profile') }}">Profile</a>
+                <a class="mr-2 text-white" href="{{ route('profile') }}">Profile</a>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button class="text-white">Logout</button>
+                    <a class="text-white" href=""><button class="nav-link">Logout</button></a>
                 </form>
             </div>
         @endauth
 
         @guest
             <div>
-                <a class="pr-2 text-white" href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
+                <a class="mr-2 text-white" href="{{ route('login') }}">Login</a>
+                <a class="text-white" href="{{ route('register') }}">Register</a>
             </div>
         @endguest
     </nav>
