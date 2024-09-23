@@ -43,7 +43,7 @@
                             <option value="Gameplay">Gameplay</option>
                             <option value="LFT">LFT</option>
                             <option value="Memes">Memes</option>
-                            <option value="other">Other</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
