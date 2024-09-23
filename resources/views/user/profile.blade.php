@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="border-2 rounded-md bg-red-700">
-                    <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                    <form action="{{ route('posts.destroy', $post) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
 
                         @csrf
                         @method('DELETE')

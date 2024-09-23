@@ -33,7 +33,7 @@
                     <td class="pl-3 p-1 m-11">{{ $user->isAdmin }}</td>
                     <td class="flex justify-center bg-green-600 max-w-[60px]"><a
                             href="{{ route('posts.user', $user->id) }}">View</a></td>
-                    <form action="{{ route('profileDestroy', ['user' => $user->id]) }}" method="POST">
+                    <form action="{{ route('profileDestroy', ['user' => $user->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete {{ $user->username }}?')">
                         @csrf
                         @method('DELETE')
                         <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><button>Delete</button></td>
@@ -61,7 +61,7 @@
                     <td>{{ $post->created_at }}</td>
                     <td class="flex justify-center bg-green-600 max-w-[60px]"><a
                             href="{{ route('posts.show', $post->id) }}">View</a></td>
-                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
                         @csrf
                         @method('DELETE')
                         <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><button>Delete</button></td>
