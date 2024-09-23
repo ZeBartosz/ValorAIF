@@ -54,7 +54,7 @@ class PostsController extends Controller
         $request->validate([
             'title' => ['required', 'max:55'],
             'body' => ['required', 'max:500',],
-            'catagory' => 'required|in:General,Pro,Gameplay,LFT,Memes,other',
+            'catagory' => 'required|in:General,Pro,Gameplay,LFT,Memes,Other',
             'banner' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
 
@@ -107,7 +107,7 @@ class PostsController extends Controller
         $request->validate([
             'title' => ['required', 'max:55'],
             'body' => ['required', 'max:500',],
-            'catagory' => 'required|in:General,Pro,Gameplay,LFT,Memes,other',
+            'catagory' => 'required|in:General,Pro,Gameplay,LFT,Memes,Other',
             'banner' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
 
