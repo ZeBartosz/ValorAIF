@@ -51,6 +51,7 @@
                     <th class="pr-3">User_id</th>
                     <th class="pr-3">Title</th>
                     <th class="pr-3">Created_at</th>
+                    <th class="pr-3">Catagory</th>
                     <th class=pr-5 ">Others</th>
                 </tr>
                   @foreach ($posts as $post)
@@ -59,6 +60,7 @@
                     <td>{{ $post->user_id }}</td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->created_at }}</td>
+                    <td>{{ $post->catagory }}</td>
                     <td class="flex justify-center bg-green-600 max-w-[60px]"><a
                             href="{{ route('posts.show', $post->id) }}">View</a></td>
                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
