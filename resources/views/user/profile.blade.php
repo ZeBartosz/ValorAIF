@@ -24,14 +24,27 @@
                             <p class="text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
-
+                    
                     {{-- body --}}
                     <div class="m-5">
                         <label for="body">Body</label>
                         <textarea name="body" id="" cols="20" rows="10" class="shadow md:shadow-lg "></textarea>
                         @error('body')
-                            <p class="text-red-500">{{ $message }}</p>
+                        <p class="text-red-500">{{ $message }}</p>
                         @enderror
+                    </div>
+                    
+                    {{-- Category --}}
+                    <div class="m-5">
+                        <label for="catagory">Catagory</label>
+                        <select name="catagory" id="catagory" data-placeholder="Select Catagory" >
+                            <option value="General">General</option>
+                            <option value="Pro">Pro Play</option>
+                            <option value="Gameplay">Gameplay</option>
+                            <option value="LFT">LFT</option>
+                            <option value="Memes">Memes</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
 
                     {{-- Banner --}}

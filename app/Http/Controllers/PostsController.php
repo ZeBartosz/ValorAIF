@@ -54,8 +54,10 @@ class PostsController extends Controller
         $request->validate([
             'title' => ['required', 'max:55'],
             'body' => ['required', 'max:500',],
+            'catagory' => 'required|in:General,Pro,Gameplay,LFT,Memes,other',
             'banner' => ['nullable', 'file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
+
 
         // Store avatar if exists
         $pathBanner = null;
@@ -71,6 +73,7 @@ class PostsController extends Controller
         Auth::user()->posts()->create([
             'title' => $request->title,
             'body' => $request->body,
+            'catagory' => $request->catagory,
             'postsBanner' => $pathBanner
         ]);
 
