@@ -14,6 +14,7 @@ class posts extends Model
     protected $fillable = [
         'title',
         'body',
+        'catagory',
         'postsBanner'
     ];
 
