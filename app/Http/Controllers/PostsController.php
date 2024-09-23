@@ -18,14 +18,30 @@ class PostsController extends Controller
      */
     public function index()
     {
+
+        $categoryColors = [
+            'other',
+            'general',
+            'pro',
+            'gameplay',
+            'lft',
+            'memes',
+        ];
+
         // Start with the base query
         $query = Posts::orderBy('created_at', 'DESC'); 
 
         if (request()->has('search')) {
             $search = request()->get('search', '');
+            $searchLower = Str::lower($search);
             // Apply search filter
-            $query->where('title', 'like', '%' . $search . '%');
+            if(in_array($searchLower, $categoryColors)){
+                $query->where('catagory', 'like', '%' . $search . '%');
+            } else {
+                $query->where('title', 'like', '%' . $search . '%');
+            }
         }
+
 
         // Paginate the results after the condition (search or not)
         $posts = $query->paginate(6);
