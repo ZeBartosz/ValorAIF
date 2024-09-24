@@ -18,7 +18,7 @@
                         <label for="email">Email</label>
                         <input type="text" name="email" class="shadow md:shadow-lg ">
                         @error('email')
-                            <p>{{ $message }}</p>
+                            <p class="text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -27,7 +27,7 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" class="shadow md:shadow-lg ">
                         @error('password')
-                            <p>{{ $message }}</p>
+                            <p class="text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -37,7 +37,7 @@
                     </dir>
 
                     @error('failed')
-                        <p>{{ $message }}</p>
+                        <p class="text-red-500">{{ $message }}</p>
                     @enderror
 
                     {{-- Submit --}}
