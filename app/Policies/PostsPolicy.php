@@ -6,10 +6,10 @@ use Illuminate\Auth\Access\Response;
 use App\Models\Posts;
 use App\Models\User;
 
-class PostPolicy
+class PostsPolicy
 {
-    public function modify(User $user, Posts $posts) : bool
+    public function modify(User $user, Posts $post) : bool
     {
-        return $user->id === $posts->user_id;
+        return $user->id === $post->user_id or $user->isAdmin === 1;
     }
 }

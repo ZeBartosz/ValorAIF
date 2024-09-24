@@ -5,12 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\posts;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use \Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class PostsController extends Controller
+class PostsController extends Controller implements HasMiddleware
 {
+
+    /**
+     * Get the middleware that should be assigned to the controller.
+     */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('auth', except: ['index', 'show']),
+        ];
+    }
 
 
     /**
@@ -111,6 +124,8 @@ class PostsController extends Controller
      */
     public function edit(posts $post)
     {
+        Gate::authorize('modify', $post);
+
         return view('posts.edit', ['post' => $post]);
     }
 
@@ -119,6 +134,9 @@ class PostsController extends Controller
      */
     public function update(Request $request, posts $post)
     {
+
+        Gate::authorize('modify', $post);
+
         // validation
         $request->validate([
             'title' => ['required', 'max:55'],
@@ -162,7 +180,7 @@ class PostsController extends Controller
     {
 
         // Authorising the action
-        // Gate::authorize('modify', $posts);
+        Gate::authorize('modify', $post);
         // Delete post image if exists
         $default = "account_images/banner/default_banner.jpg";
         $userBanner = $post->postsBanner;
