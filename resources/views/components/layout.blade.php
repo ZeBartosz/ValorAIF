@@ -10,7 +10,7 @@
 </head>
 
 <body
-    style="background-image: url('/storage/account_images/Logo/valorantBackground.png'); background-size: cover; height: 100vh;">
+    style="background-image: url('/storage/account_images/Logo/valorantBackground.png'); background-size: cover; height: 100vh; background-repeat: no-repeat; background-attachment: fixed;">
 
     <nav class="bg-[#bd3944] border-b-2 border-white flex justify-evenly">
 
