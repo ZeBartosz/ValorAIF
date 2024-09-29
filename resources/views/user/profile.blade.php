@@ -3,7 +3,7 @@
 
         <div class="pb-3 border-l-2 border-r-2 border-b-2 bg-gray-800 bg-opacity-75">
             <div class="pt-3 flex justify-center">
-                <h1 class=" text-white" style="text-shadow: 1px 1px black, -1px -1px black;">Welcome
+                <h1 style="text-shadow: 1px 1px black, -1px -1px black;">Welcome
                     {{ auth()->user()->username }} you have {{ $posts->total() }} posts!</h1>
             </div>
             @if (session('success'))
@@ -12,7 +12,7 @@
                     <x-flashMsg msg="{{ session('delete')}}" bg="bg-red-500"/>              
             @endif
             {{-- ~Create post --}}
-            <h1 class="pt-3 flex justify-center text-white">Create your post!</h1>
+            <h2 class="pt-3 flex justify-center text-white">Create your post!</h1>
             <div class="flex items-center justify-center">
                 <form action="{{ route('postsStore') }}" method="POST" enctype="multipart/form-data">
                     @csrf

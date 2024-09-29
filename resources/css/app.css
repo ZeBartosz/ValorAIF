@@ -45,6 +45,10 @@ label {
     @apply flex w-full justify-center items-center h-8 overflow-auto rounded-full bg-slate-100 focus:outline-none focus:ring-1 focus:ring-slate-100 focus:ring-offset-2 focus:ring-offset-slate-800;
 }
 
+h1 {
+    @apply flex justify-center text-white mt-4 text-xl
+}
+
 a {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
