@@ -6,6 +6,7 @@ use App\Models\Reply;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReplyRequest;
 use App\Http\Requests\UpdateReplyRequest;
+use Illuminate\Support\Facades\Request;
 
 class ReplyController extends Controller
 {
@@ -28,7 +29,7 @@ class ReplyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReplyRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class ReplyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateReplyRequest $request, Reply $reply)
+    public function update(Request $request, Reply $reply)
     {
         //
     }
