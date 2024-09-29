@@ -23,12 +23,13 @@ window.openTable = function (evt, tableName) {
 function searchByCatagory() {
     
     var search = document.getElementById("search");
-    var searchCatagory = document.getElementById("catagoryInput");
-    var searchByCatagory = searchCatagory.firstChild.data
-    console.log(searchCatagory)
+    var searchCatagory = event.currentTarget.querySelector('#catagoryInput');
+    var searchByCatagory = searchCatagory.textContent.trim();
     search.setAttribute("value", searchByCatagory);
     document.getElementById("searchSubmit").click();
 
 };
 
-document.getElementById("searchCatagory").addEventListener("click", searchByCatagory);
+document.querySelectorAll("#searchCatagory").forEach(function(button) {
+    button.addEventListener("click", searchByCatagory);
+});
