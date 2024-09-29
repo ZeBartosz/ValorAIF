@@ -1,7 +1,7 @@
 <x-layout>
     <div class="flex-wrap">
 
-        <div class="pb-3 border-l-2 border-r-2 border-b-2 bg-gray-800 bg-opacity-75">
+        <div class="pb-3 border-l-2 border-r-2 border-b-2 rounded-b-md bg-gray-800 bg-opacity-75">
             <div class="pt-3 flex justify-center">
                 <h1 style="text-shadow: 1px 1px black, -1px -1px black;">Welcome
                     {{ auth()->user()->username }} you have {{ $posts->total() }} posts!</h1>

@@ -2,7 +2,6 @@
 
 @foreach ($post->comments as $comment)
     <div class="flex flex-wrap flex-row-reverse">
-
         <div
             class="static flex flex-wrap box-content mb-[25px] border-2 rounded-lg drop-shadow-sm bg-gray-800 bg-opacity-75 max-w-[600px] min-w-[600px] ">
             <div class=" text-white">
