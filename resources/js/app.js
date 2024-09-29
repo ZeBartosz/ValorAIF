@@ -19,3 +19,16 @@ window.openTable = function (evt, tableName) {
     document.getElementById(tableName).classList.add("active");
     evt.currentTarget.className += " active";
 };
+
+function searchByCatagory() {
+    
+    var search = document.getElementById("search");
+    var searchCatagory = document.getElementById("catagoryInput");
+    var searchByCatagory = searchCatagory.firstChild.data
+    console.log(searchCatagory)
+    search.setAttribute("value", searchByCatagory);
+    document.getElementById("searchSubmit").click();
+
+};
+
+document.getElementById("searchCatagory").addEventListener("click", searchByCatagory);

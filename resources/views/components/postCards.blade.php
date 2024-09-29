@@ -32,7 +32,7 @@
 
         {{-- Catagory --}}
         <div class="text-white absolute top-[4px] right-[4px] {{ $categoryColors[$post->catagory] }} border-2 rounded-md bg-opacity-80">
-            <h3 class="mx-2">{{ $post->catagory }}</h3>
+            <button id="searchCatagory"><h3 id="catagoryInput" class="mx-2">{{ $post->catagory }}</h3> </button>
         </div>
 
         {{-- Title --}}

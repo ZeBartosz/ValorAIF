@@ -14,6 +14,9 @@
 
     <nav class="bg-[#bd3944] border-b-2 border-white flex justify-evenly">
 
+
+        <p id="demo"></p>
+
         <a href="{{ route('posts.index') }}"><img class="logo" src="\storage\account_images\Logo\ValorAIF.png"
                 alt=""></a>
 
@@ -24,8 +27,9 @@
                 <input class="h-10 px-5 pr-16 focus:outline-none "
                     type="search" 
                     name="search" 
+                    id="search"
                     placeholder="Search">
-                <button type="submit" class="absolute right-2 top-0 mt-3 mr-5">
+                <button id="searchSubmit" type="submit" class="absolute right-2 top-0 mt-3 mr-5">
                     <svg class=" h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                         viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
