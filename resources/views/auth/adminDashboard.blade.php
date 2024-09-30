@@ -25,7 +25,7 @@
                     <th class=pr-5 ">Others</th>
 
                 </tr>
-                    @foreach ($users as $user)
+                      @foreach ($users as $user)
                 <tr class="">
                     <td class="">{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
@@ -37,16 +37,25 @@
                         onsubmit="return confirm('Are you sure you want to delete {{ $user->username }}?')">
                         @csrf
                         @method('DELETE')
-                        @if ($user->isAdmin === 1)
-                            <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><a><button>Delete</button></a></td>
-                        @else
-                            <td class="flex justify-center bg-red-600 max-w-[60px]"><a><button>Delete</button></a></td>
-                        @endif
+                        <td class="flex justify-center bg-red-600 max-w-[60px]"><a><button>Delete</button></a>
+                        </td>
+
                     </form>
                     @if ($user->isAdmin === 0)
-                        <form action="{{ route('adminPromote', $user->id) }}" method="POST">
+                        <form action="{{ route('adminPromote', $user->id) }}" method="POST"
+                            onsubmit="return confirm('Are you sure you want to promore {{ $user->username }}?')">
+
                             @csrf
-                            <td class="flex justify-center bg-blue-600 max-w-[60px] mb-3"><a><button>Prom</button></a></td>
+                            <td class="flex justify-center bg-blue-600 max-w-[60px] mb-3"><a><button>Promo</button></a>
+                            </td>
+                        </form>
+                    @else
+                        <form action="{{ route('adminDemote', $user->id) }}" method="POST"
+                            onsubmit="return confirm('Are you sure you want to demote {{ $user->username }}?')">
+
+                            @csrf
+                            <td class="flex justify-center bg-blue-600 max-w-[60px] mb-3"><a><button>Demo</button></a>
+                            </td>
                         </form>
                     @endif
 
@@ -66,7 +75,7 @@
                     <th class="pr-3">Catagory</th>
                     <th class=pr-5 ">Others</th>
                 </tr>
-                    @foreach ($posts as $post)
+                      @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->user_id }}</td>

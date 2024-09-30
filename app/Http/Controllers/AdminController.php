@@ -30,4 +30,14 @@ class AdminController extends Controller
 
         return back()->with('success', $user->username . " is promoted to admin");
     }
+
+    public function demote(User $user)
+    {
+
+        $user->update([
+            'isAdmin' => 0
+        ]);
+
+        return back()->with('success', $user->username . " is demoted from being an admin");
+    }
 }

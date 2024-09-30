@@ -24,6 +24,7 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/adminDashboard', [AdminController::class, 'index'])->name('adminDashboard');
     Route::post('/promote/{user}', [AdminController::class, 'promote'])->name('adminPromote');
+    Route::post('/demote/{user}', [AdminController::class, 'demote'])->name('adminDemote');
 });
 
 // Register
