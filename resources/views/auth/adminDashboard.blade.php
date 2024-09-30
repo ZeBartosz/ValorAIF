@@ -3,7 +3,7 @@
 
     <div class="">
         <!-- Tab buttons -->
-        <div class="tab flex justify-center text-slate-500 rounded-md">
+        <div class="tab flex justify-center text-white rounded-md border-2 bg-gray-800 bg-opacity-75 my-3 mx-10 ">
             <button class="tablinks active" onclick="openTable(event, 'Table1')">Users</button>
             <button class="tablinks" onclick="openTable(event, 'Table2')">Posts</button>
         </div>
