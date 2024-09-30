@@ -25,7 +25,7 @@
                     <th class=pr-5 ">Others</th>
 
                 </tr>
-                  @foreach ($users as $user)
+                    @foreach ($users as $user)
                 <tr class="">
                     <td class="">{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
@@ -33,11 +33,23 @@
                     <td class="pl-3 p-1 m-11">{{ $user->isAdmin }}</td>
                     <td class="flex justify-center bg-green-600 max-w-[60px]"><a
                             href="{{ route('posts.user', $user->id) }}">View</a></td>
-                    <form action="{{ route('profileDestroy', ['user' => $user->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete {{ $user->username }}?')">
+                    <form action="{{ route('profileDestroy', ['user' => $user->id]) }}" method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete {{ $user->username }}?')">
                         @csrf
                         @method('DELETE')
-                        <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><button>Delete</button></td>
+                        @if ($user->isAdmin === 1)
+                            <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><a><button>Delete</button></a></td>
+                        @else
+                            <td class="flex justify-center bg-red-600 max-w-[60px]"><a><button>Delete</button></a></td>
+                        @endif
                     </form>
+                    @if ($user->isAdmin === 0)
+                        <form action="{{ route('adminPromote', $user->id) }}" method="POST">
+                            @csrf
+                            <td class="flex justify-center bg-blue-600 max-w-[60px] mb-3"><a><button>Prom</button></a></td>
+                        </form>
+                    @endif
+
                 </tr>
                 @endforeach
 
@@ -54,7 +66,7 @@
                     <th class="pr-3">Catagory</th>
                     <th class=pr-5 ">Others</th>
                 </tr>
-                  @foreach ($posts as $post)
+                    @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->user_id }}</td>
@@ -63,7 +75,8 @@
                     <td>{{ $post->catagory }}</td>
                     <td class="flex justify-center bg-green-600 max-w-[60px]"><a
                             href="{{ route('posts.show', $post->id) }}">View</a></td>
-                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
+                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this post?')">
                         @csrf
                         @method('DELETE')
                         <td class="flex justify-center bg-red-600 max-w-[60px] mb-3"><button>Delete</button></td>

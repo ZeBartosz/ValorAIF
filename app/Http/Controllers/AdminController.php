@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 
-class AdminController extends Controller {
-    
-    
+class AdminController extends Controller
+{
+
+
     public function index()
     {
         // $users = User::all();
@@ -19,4 +21,13 @@ class AdminController extends Controller {
         return view('auth.adminDashboard', ['users' => $users, 'posts' => $posts]);
     }
 
+    public function promote(User $user)
+    {
+
+        $user->update([
+            'isAdmin' => 1
+        ]);
+
+        return back()->with('success', $user->username . " is promoted to admin");
+    }
 }

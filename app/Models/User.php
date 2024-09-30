@@ -24,7 +24,8 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar',
-        'banner'
+        'banner',
+        'isAdmin'
     ];
 
     /**
@@ -50,11 +51,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function posts() : HasMany {
+    public function posts(): HasMany
+    {
         return $this->hasMany(Posts::class);
     }
 
-    public function comments() : HasMany {
+    public function comments(): HasMany
+    {
         return $this->hasMany(Comments::class);
     }
 }
