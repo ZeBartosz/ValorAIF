@@ -43,6 +43,10 @@
                     {{-- Submit --}}
                     <button class="btn">Login</button>
                 </form>
+                <div class="flex justify-center">
+                    <a class="mt-1 text-blue-700" href="{{ route('register') }}">Create an account</a>
+
+                </div>
             </div>
         </div>
 
