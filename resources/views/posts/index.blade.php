@@ -1,6 +1,12 @@
 <x-layout>
-    <div class="">
-        <h1 >Home page</h1>
+    <div>
+
+        @if ($search === '')
+            <h1>Home page</h1>
+        @else
+            <h1>Searched for: {{ $search }}</h1>
+        @endif
+
         @foreach ($posts as $post)
             <x-postCards :post="$post">
                 </x-posts>

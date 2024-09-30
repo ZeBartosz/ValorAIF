@@ -42,10 +42,10 @@ class PostsController extends Controller implements HasMiddleware
         ];
 
         // Start with the base query
-        $query = Posts::orderBy('created_at', 'DESC'); 
+        $query = Posts::orderBy('created_at', 'DESC');
+        $search = request()->get('search', ''); 
 
         if (request()->has('search')) {
-            $search = request()->get('search', '');
             $searchLower = Str::lower($search);
             // Apply search filter
             if(in_array($searchLower, $categoryColors)){
@@ -64,7 +64,7 @@ class PostsController extends Controller implements HasMiddleware
             $posts->appends(['search' => $search]);
         }
 
-        return view('posts.index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts, 'search' => $search]);
 
     }
 
