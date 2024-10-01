@@ -20,6 +20,7 @@ window.openTable = function (evt, tableName) {
     evt.currentTarget.className += " active";
 };
 
+// search by catagory 
 function searchByCatagory() {
     
     var search = document.getElementById("search");
@@ -33,3 +34,5 @@ function searchByCatagory() {
 document.querySelectorAll("#searchCatagory").forEach(function(button) {
     button.addEventListener("click", searchByCatagory);
 });
+
+
