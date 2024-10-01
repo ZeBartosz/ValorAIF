@@ -38,14 +38,15 @@ class CommentsController extends Controller
         ]);
 
         // Create a post
-        $comment_user_id = Auth::User()->id;
+        $user_id = Auth::User()->id;
         $post = Posts::find($request->posts);
-        $comment['comment_user_id'] = $comment_user_id;
+        $comment['user_id'] = $user_id;
+        $comment['parent_id'] = $request->comments;
         $post->comments()->create($comment);
 
 
         // Redirect
-        return back()->with('success', 'your post was created');
+        return back()->with('success', 'Reply was created');
     }
 
     /**

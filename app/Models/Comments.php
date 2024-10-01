@@ -13,7 +13,10 @@ class Comments extends Model
 
     protected $fillable = [
         'body',
-        'comment_user_id'
+        'user_id',
+        'posts_id',
+        'parent_id'
+
     ];
 
     public function posts() : BelongsTo {
@@ -24,7 +27,4 @@ class Comments extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function replies() : HasMany {
-        return $this->hasMany(Reply::class);
-    }
 }
