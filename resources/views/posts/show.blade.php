@@ -38,9 +38,6 @@
             </div>
         @endforeach
 
-        <div class="comment_reply flex flex-wrap flex-row-reverse">
-        </div>
-
         <script>
             const posts = @json($post->id);  // Blade variable passed to JS
     
@@ -64,10 +61,12 @@
                                     <p class="text-red-500">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <button class="btn">Reply</button>
+                                <button class="btn text-black">Reply</button>
                             </form>
                         </div>
                     `);
+
+                    item.remove();
                 });
             });
         </script>
