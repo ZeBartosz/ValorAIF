@@ -29,13 +29,9 @@
             <x-flashMsg msg="{{ session('delete') }}" bg="bg-red-500" />
         @endif
 
-        @foreach ($post->comments as $comment)
-            <x-commentCards :comment="$comment" />
-
-            {{-- reply --}}
-            <div class="text-sm text-blue-500 mb-3 flex flex-wrap flex-row-reverse ">
-                <button class="reply pr-3" data-comment-id="{{ $comment->id }}">Reply</button>
-            </div>
+        {{-- Display Parent Comments --}}
+        @foreach ($post->comments->where('parent_id', null) as $comment)
+            <x-comment :comment="$comment" />
         @endforeach
 
         <script>
