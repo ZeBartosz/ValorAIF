@@ -30,4 +30,16 @@ class posts extends Model
         return $this->hasMany(Like::class);
     }
 
+    public function likesCount(){
+
+        return $this->likes()->where('liked', 1)->count();
+        
+    }
+
+    public function dislikesCount(){
+
+        return $this->likes()->where('disliked', 1)->count();
+        
+    }
+
 }

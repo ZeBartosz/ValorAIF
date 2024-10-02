@@ -48,7 +48,6 @@ class LikeController extends Controller
         $post = Posts::find($request->posts);
         $data = $post->likes()->where('posts_id', $post->id)->where('user_id', $user->id)->first();
     
-
         if($data == null) {
             $post->likes()->create([
                 'user_id' => $user->id,

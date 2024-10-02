@@ -194,4 +194,5 @@ class PostsController extends Controller implements HasMiddleware
         // Redirect to daashboard
         return back()->with('delete', 'Your post has been deleted!');
     }
+
 }

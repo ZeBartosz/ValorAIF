@@ -75,14 +75,14 @@
             <form action="{{ route('likes', $post) }}" method="POST">
                 @csrf
                 
-                <Button>L</Button>
+                <Button>{{ $post->likesCount() }}</Button>
             </form>
         </div>
 
         <div class="border-2 rounded-md px-1 m-1 text-white">
             <form action="{{ route('dislikes', $post) }}" Method="POST">
                 @csrf
-                <button>D</button>
+                <button>{{ $post->dislikesCount() }}</button>
             </form>
 
         </div>
