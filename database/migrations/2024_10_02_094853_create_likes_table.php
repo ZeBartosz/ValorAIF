@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('posts_id')->constrained()->cascadeOnDelete();
             $table->integer('user_id');
-            $table->boolean('liked');
-            $table->boolean('disliked');
+            $table->boolean('liked')->default(0);
+            $table->boolean('disliked')->default(0);
             $table->timestamps();
         });
     }

@@ -4,64 +4,78 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreLikeRequest;
-use App\Http\Requests\UpdateLikeRequest;
+use App\Models\posts;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LikeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    
+
+    public function like(Request $request, posts $post) {
+
+        $user = Auth::user();
+        $post = Posts::find($request->posts);
+        $data = $post->likes()->where('posts_id', $post->id)->where('user_id', $user->id)->first();
+
+        if($data == null) {
+            $post->likes()->create([
+                'user_id' => $user->id,
+                'liked' => True
+            ]);
+        } else {
+            if ($data->liked === 1){
+                if ($data->disliked === 0){
+                    $this->destroy($data->id);
+                }
+            } else {
+                $post->likes()->where('id', $data->id)->update([
+                    'liked' => True,
+                    'disliked' => False 
+                ]);
+            }
+            
+        }
+
+        return back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreLikeRequest $request)
-    {
-        //
-    }
+    public function dislike(Request $request, posts $post) {
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Like $like)
-    {
-        //
-    }
+        $user = Auth::user();
+        $post = Posts::find($request->posts);
+        $data = $post->likes()->where('posts_id', $post->id)->where('user_id', $user->id)->first();
+    
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Like $like)
-    {
-        //
-    }
+        if($data == null) {
+            $post->likes()->create([
+                'user_id' => $user->id,
+                'disliked' => True
+            ]);
+        } else {
+            if ($data->disliked === 1){
+                if ($data->liked === 0){
+                    $this->destroy($data->id);
+                }
+            } else {
+                $post->likes()->where('id', $data->id)->update([
+                        'liked' => False,
+                        'disliked' => True 
+                    ]);
+            }
+            
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateLikeRequest $request, Like $like)
-    {
-        //
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Like $like)
+    public function destroy(Int $like)
     {
-        //
+        return Like::destroy($like);
     }
 }
