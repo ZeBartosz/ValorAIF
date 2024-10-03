@@ -21,7 +21,8 @@ window.openTable = function (evt, tableName) {
 };
 
 // search by catagory 
-function searchByCatagory() {
+function searchByCatagory(event) {
+    event.preventDefault();
     
     var search = document.getElementById("search");
     var searchCatagory = event.currentTarget.querySelector('#catagoryInput');

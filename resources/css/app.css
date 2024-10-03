@@ -109,3 +109,20 @@ table, th, td {
 
     text-align: left;
 }
+
+.msgLink {
+
+        text-decoration: none;
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: no-repeat;
+        background-size: 0% 0px;
+        transition: none;
+}
+
+.btnlike:hover,
+.btnlike:focus {
+  text-decoration: none;
+  background-size: 100% 3px;
+  transform: translateY(-1px);
+}

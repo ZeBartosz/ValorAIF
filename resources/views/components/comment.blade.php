@@ -6,7 +6,7 @@
 @endphp
 
 <div class="flex flex-wrap flex-row-reverse ml-{{ $depth * 4 }}"> 
-    <div class="static flex flex-wrap box-content border-2 rounded-lg drop-shadow-sm bg-gray-700 bg-opacity-75" style="max-width: {{ $boxWidth }}px; min-width: {{ $boxWidth }}px;">
+    <div class="static flex flex-wrap box-content border-2 rounded-lg drop-shadow-sm bg-gray-700 bg-opacity-25" style="max-width: {{ $boxWidth }}px; min-width: {{ $boxWidth }}px;">
         <div class="text-white">
             <div class="flex m-1">
                 <h2 class="ml-2" style="text-shadow: 1px 1px black, -1px -1px black;">
