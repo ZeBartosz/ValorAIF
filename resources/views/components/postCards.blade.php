@@ -70,28 +70,59 @@
         </div>
     </div>
 
-    <div class="flex flex-wrap mt-1">
-        <div class="border-2 rounded-md px-1 m-1 text-white">
-            <form action="{{ route('likes', $post) }}" method="POST">
-                @csrf
+    <div class="flex flex-wrap mt-1 ">
+        <div class="flex flex-wr  rounded-md px-1 m-">
+
+            <div class=" px-1 m-1 m border-r-[1px]">
+                <form action="{{ route('likes', $post) }}" method="POST">
+                    @csrf
+                    
+                    <Button class="pr-2 flex flex-wrap text-white" style="text-shadow: 2px 2px #000000;"><svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="icon icon-tabler icon-tabler-heart-filled pr-1" width="22" height="22" 
+                        viewBox="0 0 24 24" 
+                        stroke-width="1.5" 
+                        stroke="#2c3e50" 
+                        fill="none" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round">
+                        <path 
+                        stroke="none" 
+                        d="M0 0h24v24H0z" 
+                        fill="none"/>
+                        <path 
+                        d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" stroke-width="0" fill="white" />
+                      </svg>{{ $post->likesCount() }}</Button>
+                </form>
+            </div>
+            
+            <div class="px-1 m-1 border-r-[1px]">
+                <form action="{{ route('dislikes', $post) }}" Method="POST">
+                    @csrf
+                    <button class="pr-2 flex flex-wrap text-white" style="text-shadow: 2px 2px #000000;"><svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="icon icon-tabler icon-tabler-heart-off pr-1" 
+                        width="22" height="22" 
+                        viewBox="0 0 24 24" 
+                        stroke-width="1.5" 
+                        stroke="#2c3e50" 
+                        fill="none" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 3l18 18" />
+                        <path d="M19.5 12.572l-1.5 1.428m-2 2l-4 4l-7.5 -7.428a5 5 0 0 1 -1.288 -5.068a4.976 4.976 0 0 1 1.788 -2.504m3 -1c1.56 0 3.05 .727 4 2a5 5 0 1 1 7.5 6.572"  />
+                      </svg>{{ $post->dislikesCount() }}</button>
+                </form>
                 
-                <Button>{{ $post->likesCount() }}</Button>
-            </form>
-        </div>
-
-        <div class="border-2 rounded-md px-1 m-1 text-white">
-            <form action="{{ route('dislikes', $post) }}" Method="POST">
-                @csrf
-                <button>{{ $post->dislikesCount() }}</button>
-            </form>
-
-        </div>
-        
-        @if (!$full)
-            <div class="border-2 rounded-md  px-1 m-1">
+            </div>
+            
+            @if (!$full)
+            <div class=" px-1 m-1">
                 <a href="{{ route('posts.show', $post) }}" class="text-blue-500 ml-1 text-sm">Read more &rarr;</a>
             </div>
-        @endif
+            @endif
+        </div>
 
     </div>
 </div>
