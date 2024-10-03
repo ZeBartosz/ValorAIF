@@ -42,4 +42,8 @@ class posts extends Model
         
     }
 
+    public function replyCount() {
+        return $this->comments()->count();
+    }
+
 }
