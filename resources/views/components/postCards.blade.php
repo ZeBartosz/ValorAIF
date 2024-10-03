@@ -13,7 +13,7 @@
 
 <div>
 
-    <div class="relative flex flex-wrap box-content p- mt-[25px] border-2 rounded-lg drop-shadow-sm">
+    <div class="relative flex flex-wrap box-content mt-[25px] border-2 rounded-lg drop-shadow-sm cursor-pointer" onclick="window.location='{{ route('posts.show', $post) }}';">
         {{-- Background image with blur --}}
         <div class="absolute inset-0 bg-cover bg-center filter blur-[2px]"
             style="background-image: url('/storage/{{ $post->postsBanner }}'); z-index: -1;">
@@ -71,7 +71,7 @@
     </div>
 
     <div class="flex flex-wrap mt-1 ">
-        <div class="flex flex-wr  rounded-md px-1 m-">
+        <div class="flex flex-wr bg-black bg-opacity-15 rounded-md px-1 m-">
 
             <div class=" px-1 m-1 m border-r-[1px]">
                 <form action="{{ route('likes', $post) }}" method="POST">
@@ -110,18 +110,12 @@
                         stroke-linecap="round" 
                         stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 3l18 18" />
+                        <path d="M3 3l18 18"/>
                         <path d="M19.5 12.572l-1.5 1.428m-2 2l-4 4l-7.5 -7.428a5 5 0 0 1 -1.288 -5.068a4.976 4.976 0 0 1 1.788 -2.504m3 -1c1.56 0 3.05 .727 4 2a5 5 0 1 1 7.5 6.572"  />
                       </svg>{{ $post->dislikesCount() }}</button>
                 </form>
                 
             </div>
-            
-            @if (!$full)
-            <div class=" px-1 m-1">
-                <a href="{{ route('posts.show', $post) }}" class="text-blue-500 ml-1 text-sm">Read more &rarr;</a>
-            </div>
-            @endif
         </div>
 
     </div>
