@@ -66,26 +66,7 @@
             <h2 class="text-white mt-4 text-xl" style="text-shadow: 1px 1px black, -1px -1px black;">Your Posts:</h2>
         </div>
         @foreach ($posts as $post)
-            <x-postCards :post="$post" /> 
-                <div class="flex relative  bg-black bg-opacity-15 rounded-md">
-                    <div class="flex my-1">
-
-                        <div class=" text-green-600 border-r">
-                            <button class="mx-2"><a
-                                href="{{ Route('posts.edit', $post) }}">edit</a></button>
-                            </div>
-                            
-                            <div class="text-[#b3000f]">
-                                <form action="{{ route('posts.destroy', $post) }}" method="POST"
-                                onsubmit="return confirm('Are you sure you want to delete this post?')">
-                                
-                                @csrf
-                                @method('DELETE')
-                                <button class="mx-2">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <x-postCards :post="$post" profile/>
         @endforeach
 
         <div>
