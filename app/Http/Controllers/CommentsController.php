@@ -8,9 +8,20 @@ use App\Models\posts;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Gate;
 
 class CommentsController extends Controller
 {
+
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('auth'),
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -62,6 +73,8 @@ class CommentsController extends Controller
      */
     public function edit(Comments $comment)
     {
+        Gate::authorize('modify', $comment);
+
         return view('posts.editComments', ['comment' => $comment]);
     }
 
@@ -70,6 +83,9 @@ class CommentsController extends Controller
      */
     public function update(Request $request, Comments $comment)
     {
+
+        Gate::authorize('modify', $comment);
+
         // validation
         $validated = $request->validate([
             'body' => ['required', 'max:500',],
@@ -90,6 +106,8 @@ class CommentsController extends Controller
      */
     public function destroy(Comments $comment)
     {
+        Gate::authorize('modify', $comment);
+
         $comment->delete();
 
         return back()->with('delete', 'Your reply has been deleted!');
