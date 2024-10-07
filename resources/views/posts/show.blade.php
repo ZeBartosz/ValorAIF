@@ -47,17 +47,17 @@
                     const comment = item.getAttribute('data-comment-id');
 
                     item.parentElement.insertAdjacentHTML('beforeend', `
-                       <div class="relative flex flex-wrap box-content my-[25px] border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 p-3 max-w-[500px] min-w-[500px] top-[11px] right-[-117px]">
+                        <div class="static flex flex-wrap my-[10px] border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 p-3 max-w-[500px] min-w-[500px]">
                             <form action="/comments/${posts}/${comment}/store" method="POST">
-                            @csrf
-                            <div class="m-3">
+                                @csrf
+                                <div class="m-3">
                                 <label for="body">Reply to the comment</label>
                                 <textarea name="body" cols="70" rows="2" class="shadow md:shadow-lg"></textarea>
                                 @error('body')
                                 <p class="text-red-500">{{ $message }}</p>
                                 @enderror
-                            </div>
-                            <button class="btn text-black">Reply</button>
+                                </div>
+                                <button class="btn text-black">Reply</button>
                             </form>
                         </div>
                     `);
