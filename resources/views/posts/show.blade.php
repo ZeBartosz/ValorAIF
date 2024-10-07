@@ -47,7 +47,7 @@
                     const comment = item.getAttribute('data-comment-id');
 
                     item.parentElement.insertAdjacentHTML('beforeend', `
-                        <div class="static flex flex-wrap my-[10px] border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 p-3 max-w-[500px] min-w-[500px]">
+                        <div class="static flex flex-wrap mb-[10px] mt-[2px] border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 p-3 max-w-[500px] min-w-[500px]">
                             <form action="/comments/${posts}/${comment}/store" method="POST">
                                 @csrf
                                 <div class="m-3">

@@ -35,8 +35,8 @@
     <div class="flex flex-row-reverse my-1">
         {{-- edit and delete --}}
         @if ($comment->sameUser($comment->user_id))
-            <div class="flex flex-wrap bg-black bg-opacity-15 rounded-md max-h-8">
-                <div class="flex my-1 max-h-8">
+            <div class="flex flex-wrap bg-black bg-opacity-15 rounded-md ">
+                <div class="flex my-1">
 
                     <div class=" text-green-600 border-r">
                         <button class="mx-2"><a href="{{ route('comments.edit', $comment) }}">edit</a></button>
@@ -54,15 +54,15 @@
                 </div>
             </div>
         @endif
-
-        {{-- Reply Button --}}
-        <div class="text-sm text-blue-500 ml-2 flex flex-wrap flex-row-reverse ml-{{ $depth * 4 }}">
-            <button class="reply pr-3" data-comment-id="{{ $comment->id }}">Reply</button>
-        
-        </div>
         
     </div>
+    {{-- Reply Button --}}
+    <div class="text-sm text-blue-500 ml-2 flex flex-wrap flex-row-reverse ml-{{ $depth * 4 }}">
+        <button class="reply pr-3" data-comment-id="{{ $comment->id }}">Reply</button>
+    
+    </div>
 </div>
+
 
 
 @if ($comment->replies->isNotEmpty())
