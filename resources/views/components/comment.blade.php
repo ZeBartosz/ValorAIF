@@ -30,6 +30,10 @@
         </div>
     </div>
 </div>
+@if ($comment->sameUser($comment->user_id))
+    <h1>hello </h1>
+@endif
+
 
 {{-- Reply Button --}}
 <div class="text-sm text-blue-500 mb-3 flex flex-wrap flex-row-reverse ml-{{ $depth * 4 }}">
