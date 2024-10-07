@@ -1,6 +1,6 @@
 <x-layout>
     <div class="static flex flex-wrap box-content my-[25px] border-2 rounded-lg drop-shadow-sm bg-gray-800 bg-opacity-75 p-3 max-w-[500px] min-w-[500px]">
-        <form action="{{ route('comments.update', $comment)}}" method="POST">
+        <form action="{{ route('comments.update', $comment)}}" method="POST" onsubmit="return confirm('Are you sure you want to edit this reply?')">
             @csrf
             @method('PUT')
             <div class="m-3">

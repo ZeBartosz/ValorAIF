@@ -8,7 +8,7 @@
 
                 <a href="{{ route('profile') }}" class="mb-2 text-blue-500 flex justify-center">&larr; Go back to your dashboard</a>
                 <h2 class="text-white flex justify-center">Update your post!</h2>
-                <form action="{{ route('posts.update', $post) }}" method="Post" enctype="multipart/form-data">
+                <form action="{{ route('posts.update', $post) }}" method="Post" enctype="multipart/form-data" onsubmit="return confirm('Are you sure you want to edit this post?')">
                     @csrf
                     @method('PUT')
                     

@@ -44,7 +44,7 @@
 
                     <div class="text-[#b3000f]">
                         <form action="{{ route('comments.destroy', $comment) }}" method="POST"
-                            onsubmit="return confirm('Are you sure you want to delete this post?')">
+                            onsubmit="return confirm('Are you sure you want to delete this reply?')">
 
                             @csrf
                             @method('DELETE')
