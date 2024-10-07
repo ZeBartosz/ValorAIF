@@ -3,7 +3,7 @@
 
     <div class="">
         <!-- Tab buttons -->
-        <div class="tab flex justify-center text-white rounded-md border-2 bg-gray-800 bg-opacity-75 my-3 mx-10 ">
+        <div class="tab flex justify-center text-white rounded-md border-2 bg-gray-900 bg-opacity-75 my-3 mx-10 ">
             <button class="tablinks active" onclick="openTable(event, 'Table1')">Users</button>
             <button class="tablinks" onclick="openTable(event, 'Table2')">Posts</button>
         </div>
@@ -15,7 +15,7 @@
         @endif
 
         <!-- Tables -->
-        <div id="Table1" class="table-content active bg-gray-800 bg-opacity-75 border-2 rounded-lg text-white ">
+        <div id="Table1" class="table-content active bg-gray-900 bg-opacity-75 border-2 rounded-lg text-white ">
             <table class="m-3">
                 <tr class="mt-1">
                     <th class="pr-3">Id</th>
@@ -65,7 +65,7 @@
             </table>
         </div>
 
-        <div id="Table2" class="table-content deactive bg-gray-800 bg-opacity-75 border-2 rounded-lg text-white ">
+        <div id="Table2" class="table-content deactive bg-gray-900 bg-opacity-75 border-2 rounded-lg text-white ">
             <table class="m-3">
                 <tr>
                     <th class="pr-3">Id</th>

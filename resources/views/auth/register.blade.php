@@ -1,7 +1,7 @@
 <x-layout>
     <main class="h-screen flex items-center justify-center ">
 
-        <div class="border-2 rounded-lg drop-shadow-sm bg-gray-800 bg-opacity-75">
+        <div class="border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75">
             <div class="m-4">
 
                 <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
