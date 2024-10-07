@@ -67,6 +67,6 @@
 
 @if ($comment->replies->isNotEmpty())
     @foreach ($comment->replies as $reply)
-        <x-comment :comment="$reply" :depth="$depth + 1" />
+        <x-commentCards :comment="$reply" :depth="$depth + 1" />
     @endforeach
 @endif

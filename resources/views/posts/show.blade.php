@@ -31,7 +31,7 @@
 
         {{-- Display Parent Comments --}}
         @foreach ($post->comments->where('parent_id', null) as $comment)
-            <x-comment :comment="$comment" />
+            <x-commentCards :comment="$comment" />
         @endforeach
 
         <script>
