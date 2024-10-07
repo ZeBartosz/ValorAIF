@@ -76,8 +76,10 @@ class CommentsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comments $comments)
+    public function destroy(Comments $comment)
     {
-        //
+        $comment->delete();
+
+        return back()->with('delete', 'Your reply has been deleted!');
     }
 }
