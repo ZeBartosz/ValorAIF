@@ -84,15 +84,7 @@
                     @csrf
 
                     <Button class="btnlike pr-2 pl-1 flex flex-wrap text-white"
-                        style="text-shadow: 2px 2px #000000;"><svg xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-heart-filled pr-1" width="22" height="22"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="#b3000f" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z"
-                                stroke-width="0" fill="#b3000f" />
-                        </svg>{{ $post->likesCount() }}</Button>
+                        style="text-shadow: 2px 2px #000000;"><img width="25" class="pr-1" src="{{ asset('storage/svg/like.svg') }}" alt="">{{ $post->likesCount() }}</Button>
                 </form>
             </div>
 
@@ -100,28 +92,13 @@
                 <form action="{{ route('dislikes', $post) }}" Method="POST">
                     @csrf
                     <button class="btnlike pr-2 pl-2 flex flex-wrap text-white"
-                        style="text-shadow: 2px 2px #000000;"><svg xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-heart-off pr-1" width="22" height="22"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="#b3000f" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M3 3l18 18" />
-                            <path
-                                d="M19.5 12.572l-1.5 1.428m-2 2l-4 4l-7.5 -7.428a5 5 0 0 1 -1.288 -5.068a4.976 4.976 0 0 1 1.788 -2.504m3 -1c1.56 0 3.05 .727 4 2a5 5 0 1 1 7.5 6.572" />
-                        </svg>
-                        </svg>{{ $post->dislikesCount() }}</button>
+                        style="text-shadow: 2px 2px #000000;"><img width="25" class="pr-1" src="{{ asset('storage/svg/dislike.svg') }}" alt="">{{ $post->dislikesCount() }}</button>
                 </form>
             </div>
 
             <div class="m-1">
                 <a href="{{ route('posts.show', $post) }}" class="msgLink flex flex-wrap text-white px-1"
-                    style="text-shadow: 2px 2px #000000;"><svg xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-message-circle-2 pr-1" width="22" height="22"
-                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#b3000f" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
-                    </svg>{{ $post->replyCount() }}</a>
+                    style="text-shadow: 2px 2px #000000;"><img width="25" class="pr-1 pb-1" src="{{ asset('storage/svg/reply.svg') }}">{{ $post->replyCount() }}</a>
             </div>
         </div>
 
