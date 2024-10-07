@@ -14,20 +14,15 @@
 
     <nav class="bg-[#b3000f] border-b-2 border-white flex justify-evenly">
 
-
-        <p id="demo"></p>
-
-        <a href="{{ route('posts.index') }}"><img class="logo" src="\storage\account_images\Logo\ValorAIF.png"
-                alt=""></a>
-
-
+        <div>
+            <a href="{{ route('posts.index') }}"><img class="logo" src="\storage\account_images\Logo\ValorAIF.png"
+                    alt=""></a>
+        </div>
+        
         <form action=" {{ route('posts.index') }}" method="GET">
             @csrf
             <div class="relative mx-auto ">
-                <input class="h-10 px-5 pr-16 focus:outline-none "
-                    type="search" 
-                    name="search" 
-                    id="search"
+                <input class="h-10 px-5 pr-16 focus:outline-none " type="search" name="search" id="search"
                     placeholder="Search">
                 <button id="searchSubmit" type="submit" class="absolute right-2 top-0 mt-3 mr-5">
                     <svg class=" h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
@@ -40,12 +35,12 @@
                 </button>
             </div>
         </form>
-        
+
         @auth
-            <div class="flex">       
-                                  
+            <div class="flex">
+
                 @admin
-                    <a class="mr-2 text-white" href="{{ route('adminDashboard') }}" >Admin</a>
+                    <a class="mr-2 text-white" href="{{ route('adminDashboard') }}">Admin</a>
                 @endadmin
                 <a class="mr-2 text-white" href="{{ route('profile') }}">Profile</a>
                 <form action="{{ route('logout') }}" method="POST">
