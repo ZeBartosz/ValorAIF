@@ -32,4 +32,8 @@ class Comments extends Model
         return $this->hasMany(Comments::class, 'parent_id');
     }
 
+    public function findUser (int $id) {
+        return User::find($id);
+    }
+
 }

@@ -12,7 +12,7 @@
                 <h2 class="ml-2" style="text-shadow: 1px 1px black, -1px -1px black;">
                     <em>
                         <a href="{{ route('posts.user', $comment->user_id) }}">
-                            {{ app\Models\User::find($comment->user_id)->username }}
+                            {{ $comment->findUser($comment->user_id)->username }}
                         </a>
                     </em>
                 </h2>
