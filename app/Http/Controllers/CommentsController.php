@@ -60,17 +60,29 @@ class CommentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Comments $comments)
+    public function edit(Comments $comment)
     {
-        //
+        return view('posts.editComments', ['comment' => $comment]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comments $comments)
+    public function update(Request $request, Comments $comment)
     {
-        //
+        // validation
+        $validated = $request->validate([
+            'body' => ['required', 'max:500',],
+        ]);
+
+        $post = Posts::findorFail($comment->posts_id);
+        // Create a post
+        $comment->update([
+            'body' => $validated['body'],
+        ]);
+
+        // Redirect
+        return redirect()->route('posts.show', $post)->with('success', 'Reply was updated');
     }
 
     /**

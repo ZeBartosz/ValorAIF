@@ -43,7 +43,7 @@
                 <div class="flex my-1">
 
                     <div class=" text-green-600 border-r">
-                        <button class="mx-2"><a href="#">edit</a></button>
+                        <button class="mx-2"><a href="{{ route('comments.edit', $comment)}}">edit</a></button>
                     </div>
 
                     <div class="text-[#b3000f]">
