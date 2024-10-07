@@ -18,7 +18,7 @@
             <a href="{{ route('posts.index') }}"><img class="logo" src="\storage\account_images\Logo\ValorAIF.png"
                     alt=""></a>
         </div>
-        
+
         <form action=" {{ route('posts.index') }}" method="GET">
             @csrf
             <div class="relative mx-auto ">
@@ -37,16 +37,27 @@
         </form>
 
         @auth
-            <div class="flex">
 
-                @admin
-                    <a class="mr-2 text-white" href="{{ route('adminDashboard') }}">Admin</a>
-                @endadmin
-                <a class="mr-2 text-white" href="{{ route('profile') }}">Profile</a>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <a class="text-white" href=""><button class="nav-link">Logout</button></a>
-                </form>
+
+            <div class="flex ">
+                <ul class="flex">
+                    <li>
+                        @admin
+                            <a class="mr-2 text-white" href="{{ route('adminDashboard') }}">Admin</a>
+                        @endadmin
+                    </li>
+                    <li>
+
+                        <a class="mr-2 text-white" href="{{ route('profile') }}">Profile</a>
+                    </li>
+                    <li>
+
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <a class="text-white" href=""><button class="nav-link">Logout</button></a>
+                        </form>
+                    </li>
+                </ul>
             </div>
 
         @endauth
