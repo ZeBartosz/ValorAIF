@@ -23,7 +23,7 @@
 
 
 
-            <div class="md:max-w-[600px] md:min-w-[600px] max-w-[300px] min-w-[300px]">
+            <div class="md:max-w-[600px] md:min-w-[600px] sm:min-w-[600px] sm:max-w-[600px] max-w-[300px] min-w-[300px]">
                 {{-- Avatar --}}
                 <div class="absolute top-[-12px] left-[10px]">
                     <a href="{{ route('posts.user', $post->user) }}"><img class="rounded-full max-h-[50px] border-2 mb-5 "

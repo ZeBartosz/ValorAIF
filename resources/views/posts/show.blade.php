@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="min-[350px]:max-w-[350px] min-[350px]:min-w-[350px] md:max-w-[600px] md:min-w-[600px] max-w-[300px] min-w-[300px]">
+    <div class="min-[350px]:max-w-[350px] min-[350px]:min-w-[350px] md:max-w-[600px] md:min-w-[600px] sm:min-w-[600px] sm:max-w-[600px] max-w-[300px] min-w-[300px] ">
 
         <x-postCards :post="$post" full />
         <div

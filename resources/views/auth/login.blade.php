@@ -41,7 +41,10 @@
                     @enderror
 
                     {{-- Submit --}}
-                    <button class="btn">Login</button>
+                    <div class="flex justify-center">
+
+                        <button class="btn">Login</button>
+                    </div>
                 </form>
                 <div class="flex justify-center">
                     <a class="mt-1 text-blue-700" href="{{ route('register') }}">Create an account</a>

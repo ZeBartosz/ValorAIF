@@ -1,7 +1,7 @@
 <x-layout>
     <main class="h-screen flex items-center justify-center ">
 
-        <div class="border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75">
+        <div class="border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 min-[350px]:max-w-[350px] min-[350px]:min-w-[350px] md:max-w-[500px] md:min-w-[500px] sm:min-w-[500px] sm:max-w-[500px] max-w-[300px] min-w-[300px] mx-auto">
             <div class="m-4">
 
                 <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
@@ -60,7 +60,9 @@
                     </div>
 
                     {{-- Submit --}}
-                    <button class="btn">register</button>
+                    <div class="flex justify-center">
+                        <button class="btn">register</button>
+                    </div>
                 </form>
             </div>
         </div>
