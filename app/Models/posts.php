@@ -32,18 +32,18 @@ class posts extends Model
 
     public function likesCount(){
 
-        return $this->likes()->where('liked', 1)->count();
+        return self::likes()->where('liked', 1)->count();
         
     }
 
     public function dislikesCount(){
 
-        return $this->likes()->where('disliked', 1)->count();
+        return self::likes()->where('disliked', 1)->count();
         
     }
 
     public function replyCount() {
-        return $this->comments()->count();
+        return self::comments()->count();
     }
 
 }

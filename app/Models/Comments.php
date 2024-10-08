@@ -53,4 +53,16 @@ class Comments extends Model
 
     }
 
+    public function commentLikesCount(){
+
+        return self::commentLikes()->where('liked', 1)->count();
+        
+    }
+
+    public function commentDislikesCount(){
+
+        return self::commentLikes()->where('disliked', 1)->count();
+        
+    }
+
 }

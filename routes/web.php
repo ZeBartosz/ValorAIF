@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
 
     Route::Post('/posts/{posts}/like', [LikeController::class, 'like'])->name('likes');
     Route::Post('/posts/{posts}/dislike', [LikeController::class, 'dislike'])->name('dislikes');
+
+    Route::Post('/posts/{comment}/commentLike', [LikeController::class, 'commentLike'])->name('commentLikes');
+    Route::Post('/posts/{comment}/commentDislike', [LikeController::class, 'commentDislike'])->name('commentDislikes');
 });
 
 Route::middleware('guest')->group(function () {
