@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('comment_likes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('comments_id')->constrained()->cascadeOnDelete();
+            $table->integer('user_id');
+            $table->boolean('liked')->default(0);
+            $table->boolean('disliked')->default(0);
             $table->timestamps();
         });
     }

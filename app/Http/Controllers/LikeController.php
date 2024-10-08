@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use App\Http\Controllers\Controller;
+use App\Models\Comments;
 use App\Models\posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class LikeController extends Controller
 {
     
-
+    // Posts likes and dislikes
     public function like(Request $request, posts $post) {
 
         $user = Auth::user();
@@ -76,5 +77,35 @@ class LikeController extends Controller
     public function destroy(Int $like)
     {
         return Like::destroy($like);
+    }
+
+
+    // comment likes and dislikes
+    public function commentLike(Request $request, Comments $comment) {
+
+        $user = Auth::user();
+        $post = Posts::find($request->posts);
+        $data = $post->likes()->where('posts_id', $post->id)->where('user_id', $user->id)->first();
+
+        if($data == null) {
+            $post->likes()->create([
+                'user_id' => $user->id,
+                'liked' => True
+            ]);
+        } else {
+            if ($data->liked === 1){
+                if ($data->disliked === 0){
+                    $this->destroy($data->id);
+                }
+            } else {
+                $post->likes()->where('id', $data->id)->update([
+                    'liked' => True,
+                    'disliked' => False 
+                ]);
+            }
+            
+        }
+
+        return back();
     }
 }

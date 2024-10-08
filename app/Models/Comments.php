@@ -28,6 +28,11 @@ class Comments extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function commentLikes() : HasMany {
+        return $this->hasMany(CommentLikes::class);
+    }
+
+
     public function replies()
     {
         return $this->hasMany(Comments::class, 'parent_id');
