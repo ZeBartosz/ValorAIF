@@ -1,14 +1,9 @@
-@props(['comment', 'depth' => 0])
+@props(['comment'])
 
-@php
-    $boxWidth = max(600 - $depth * 50, 300);
-    $post;
-@endphp
 
 {{-- comment --}}
-<div class="flex flex-col flex-wrap-reverse ml-{{ $depth * 4 }} mb-3">
-    <div class="flex box-content border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75"
-        style="max-width: {{ $boxWidth }}px; min-width: {{ $boxWidth }}px;">
+<div class="flex flex-col flex-wrap-reverse mb-3">
+    <div class="flex box-content border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 w-full">
         <div class="text-white">
             <div class="flex m-1">
                 <h2 class="ml-2" style="">
@@ -34,8 +29,7 @@
 
 
 
-    <div class=" flex justify-between mt-1 "
-    style="max-width: {{ $boxWidth }}px; min-width: {{ $boxWidth }}px;">
+    <div class=" flex justify-between mt-1 ">
         {{-- likes and dislikes --}}
         <div class="flex items-center bg-black bg-opacity-15 rounded-md py-1">
 
@@ -88,16 +82,38 @@
 
     </div>
     {{-- Reply Button --}}
-    <div class="text-sm text-blue-500 ml-2 flex flex-wrap flex-row-reverse ml-{{ $depth * 4 }}">
+    <div class="text-sm text-blue-500 ml-2 flex flex-wrap flex-row-reverse">
         <button class="reply pr-3" data-comment-id="{{ $comment->id }}">Reply</button>
 
     </div>
 </div>
 
-
-
 @if ($comment->replies->isNotEmpty())
     @foreach ($comment->replies as $reply)
-        <x-commentCards :comment="$reply" :depth="$depth + 1" />
+        <div id="dynamic-div" class="dynamic-div min-w-[225px] ">
+            <x-commentCards :comment="$reply" />
+        </div>
     @endforeach
 @endif
+
+<script>
+    // Select all div elements with the class 'dynamic-div'
+    const divs = document.querySelectorAll('.dynamic-div');
+  
+    // Function to check and apply/remove ml-4 for each div
+    function updateMargin() {
+      divs.forEach(div => {
+        if (div.offsetWidth > 225) {
+          div.classList.add('ml-4');
+        } else {
+          div.classList.remove('ml-4');
+        }
+      });
+    }
+  
+    // Run the function on initial load
+    updateMargin();
+  
+    // Optional: Run the function on window resize to handle dynamic resizing
+    window.addEventListener('resize', updateMargin);
+  </script>

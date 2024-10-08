@@ -1,10 +1,10 @@
 <x-layout>
-    <div>
+    <div class="min-[350px]:max-w-[350px] min-[350px]:min-w-[350px] md:max-w-[600px] md:min-w-[600px] max-w-[300px] min-w-[300px]">
 
         <x-postCards :post="$post" full />
         <div
             class="static flex flex-wrap box-content my-[25px] border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75">
-            <div class="m-3">
+            <div class="m-3 w-full">
                 <form action="{{ route('commentStore', $post) }}" method="Post">
                     @csrf
 
@@ -47,7 +47,7 @@
                     const comment = item.getAttribute('data-comment-id');
 
                     item.parentElement.insertAdjacentHTML('beforeend', `
-                        <div class="static flex flex-wrap mb-[10px] mt-[2px] border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 p-3 max-w-[500px] min-w-[500px]">
+                        <div class="static flex flex-wrap mb-[10px] mt-[2px] border-2 rounded-lg drop-shadow-sm bg-gray-900 bg-opacity-75 p-3 min-[350px]:max-w-[350px] min-[350px]:min-w-[350px] md:max-w-[600px] md:min-w-[600px] max-w-[300px] min-w-[300px]">
                             <form action="/comments/${posts}/${comment}/store" method="POST">
                                 @csrf
                                 <div class="m-3">
