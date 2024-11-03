@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Posts;
+use Illuminate\Container\Attributes\Auth;
 use Spatie\Permission\Traits\HasRoles;
 
 use function Pest\Laravel\post;
@@ -61,5 +62,10 @@ class User extends Authenticatable
     public function comments(): HasMany
     {
         return $this->hasMany(Comments::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
     }
 }
