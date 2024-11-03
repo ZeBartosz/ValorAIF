@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         // Custom Blade directive for checking admin role
         Blade::if('admin', function () {
             // Check if the user is authenticated and is an admin
-            return Auth::check() && Auth::user()->isAdmin == 1;
+            return Auth::check() && Auth::user()->hasRole('admin');
         });
     }
 }
