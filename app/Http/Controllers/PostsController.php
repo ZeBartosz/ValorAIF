@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use \Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\hasRole;
+
 
 class PostsController extends Controller implements HasMiddleware
 {
@@ -31,7 +33,6 @@ class PostsController extends Controller implements HasMiddleware
      */
     public function index()
     {
-
         $categoryColors = [
             'other',
             'general',
@@ -43,12 +44,12 @@ class PostsController extends Controller implements HasMiddleware
 
         // Start with the base query
         $query = Posts::orderBy('created_at', 'DESC');
-        $search = request()->get('search', ''); 
+        $search = request()->get('search', '');
 
         if (request()->has('search')) {
             $searchLower = Str::lower($search);
             // Apply search filter
-            if(in_array($searchLower, $categoryColors)){
+            if (in_array($searchLower, $categoryColors)) {
                 $query->where('catagory', 'like', '%' . $search . '%');
             } else {
                 $query->where('title', 'like', '%' . $search . '%');
@@ -65,7 +66,6 @@ class PostsController extends Controller implements HasMiddleware
         }
 
         return view('posts.index', ['posts' => $posts, 'search' => $search]);
-
     }
 
     /**
@@ -194,5 +194,4 @@ class PostsController extends Controller implements HasMiddleware
         // Redirect to daashboard
         return back()->with('delete', 'Your post has been deleted!');
     }
-
 }
