@@ -21,23 +21,25 @@ Route::get('/{user}/posts', [ProfileController::class, 'userPosts'])->name('post
 
 
 
-Route::middleware('admin')->group(function () {
-    
-    Route::delete('admin/users/delete/{user}', [ProfileController::class, 
-    'destroy'])->name('profileDestroy');
-    
+Route::group(['middleware' => ['role:admin']], function () {
+
+    Route::delete('admin/users/delete/{user}', [
+        ProfileController::class,
+        'destroy'
+    ])->name('profileDestroy');
+
     Route::get('/adminDashboard', [AdminController::class, 'index'])->name('adminDashboard');
     Route::post('/promote/{user}', [AdminController::class, 'promote'])->name('adminPromote');
     Route::post('/demote/{user}', [AdminController::class, 'demote'])->name('adminDemote');
 });
 
 // Register
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => ['role:user']], function () {
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    
+
     Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
     Route::Post('/addPost', [PostsController::class, 'store'])->name('postsStore');
 

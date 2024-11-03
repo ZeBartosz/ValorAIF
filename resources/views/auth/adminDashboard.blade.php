@@ -25,12 +25,12 @@
                     <th class=pr-5 ">Others</th>
 
                 </tr>
-                      @foreach ($users as $user)
+                                     @foreach ($users as $user)
                 <tr class="">
                     <td class="">{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
-                    <td class="pl-3 p-1 m-11">{{ $user->isAdmin }}</td>
+                    <td class="pl-3 p-1 m-11">{{ $user->isAdmin() ? 'True' : 'False' }}</td>
                     <td class="flex justify-center bg-green-600 max-w-[60px]"><a
                             href="{{ route('posts.user', $user->id) }}">View</a></td>
                     <form action="{{ route('profileDestroy', ['user' => $user->id]) }}" method="POST"
@@ -41,7 +41,7 @@
                         </td>
 
                     </form>
-                    @if ($user->isAdmin === 0)
+                    @if (!$user->isAdmin())
                         <form action="{{ route('adminPromote', $user->id) }}" method="POST"
                             onsubmit="return confirm('Are you sure you want to promore {{ $user->username }}?')">
 
@@ -75,7 +75,7 @@
                     <th class="pr-3">Catagory</th>
                     <th class=pr-5 ">Others</th>
                 </tr>
-                      @foreach ($posts as $post)
+                                     @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->user_id }}</td>
