@@ -21,8 +21,8 @@ Follow these steps to get the project up and running locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ZeBartosz/ZePatches.git
-   cd ZePatches
+   git clone https://github.com/ZeBartosz/ValorAIF.git
+   cd ValorAIF
    ```
 
 2. Install dependencies:
@@ -38,8 +38,6 @@ Follow these steps to get the project up and running locally:
 
 4. Configure your `.env` file:
    - Set up your database credentials.
-   - Add your Steam API key.
-   - Configure the WebSocket broadcaster (Reverb).
 
 5. Run the migrations:
    ```bash
