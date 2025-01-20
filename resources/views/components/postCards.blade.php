@@ -19,6 +19,7 @@
             {{-- Background image with blur --}}
             <div class="absolute inset-0 bg-cover bg-center filter blur-[2px]"
                 style="background-image: url('/storage/{{ $post->postsBanner }}'); z-index: -1;">
+                <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
             </div>
 
 
@@ -110,11 +111,11 @@
                     <button class="mx-2"><a
                         href="{{ Route('posts.edit', $post) }}">edit</a></button>
                     </div>
-                    
+
                     <div class="text-[#b3000f]">
                         <form action="{{ route('posts.destroy', $post) }}" method="POST"
                         onsubmit="return confirm('Are you sure you want to delete this post?')">
-                        
+
                         @csrf
                         @method('DELETE')
                         <button class="mx-2">Delete</button>
