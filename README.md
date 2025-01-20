@@ -101,8 +101,3 @@ Feel free to reach out for any questions or feedback:
 ![Patch View](https://i.imgur.com/2ALlnhA.png)
 - Admin Dashboard
 ![Notification View](https://i.imgur.com/uClA6Ef.png)
-
-
----
-
-Enjoy tracking your games with ZePatches! 
