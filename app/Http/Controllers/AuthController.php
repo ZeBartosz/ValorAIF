@@ -48,6 +48,8 @@ class AuthController extends Controller
             'banner' => $pathBanner
         ]);
 
+        $user->assignRole('user');
+
         // Login
         Auth::login($user);
 
@@ -82,10 +84,10 @@ class AuthController extends Controller
         // Invalidate the session
         $request->session()->invalidate();
 
-        // Regenerate the token 
+        // Regenerate the token
         $request->session()->regenerateToken();
 
-        // Redirect to home 
+        // Redirect to home
         return redirect('/');
     }
 }
